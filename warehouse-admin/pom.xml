@@ -5,7 +5,7 @@
   <groupId>warehouse_admin</groupId>
   <artifactId>warehouse-admin</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>war</packaging>
   <name>warehouse-admin Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <repositories>
@@ -226,5 +226,41 @@
   </dependencies>
   <build>
     <finalName>warehouse-admin</finalName>
+    <plugins>
+	     <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-eclipse-plugin</artifactId>
+	            <configuration>
+	                <wtpmanifest>true</wtpmanifest>
+	                <wtpapplicationxml>true</wtpapplicationxml>
+	                <wtpversion>2.0</wtpversion>
+	            </configuration>
+	        </plugin>
+        			<!-- compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<!-- <warSourceExcludes>WEB-INF/classes/api_test/**</warSourceExcludes> -->
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-Branch>true</Implementation-Branch>
+							<Implementation-Build>true</Implementation-Build>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
   </build>
 </project>
