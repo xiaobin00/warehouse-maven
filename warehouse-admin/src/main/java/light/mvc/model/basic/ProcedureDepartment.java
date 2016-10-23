@@ -1,6 +1,8 @@
 package light.mvc.model.basic;
 
 import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class ProcedureDepartment implements java.io.Serializable {
 	private String charge;
 	private Integer companyId;
 	private Integer status;
-	private Timestamp createTime;
+	private Date createTime;
 
 	// Constructors
 
@@ -32,7 +34,7 @@ public class ProcedureDepartment implements java.io.Serializable {
 
 	/** minimal constructor */
 	public ProcedureDepartment(Integer companyId, Integer status,
-			Timestamp createTime) {
+			Date createTime) {
 		this.companyId = companyId;
 		this.status = status;
 		this.createTime = createTime;
@@ -40,7 +42,7 @@ public class ProcedureDepartment implements java.io.Serializable {
 
 	/** full constructor */
 	public ProcedureDepartment(String name, String charge, Integer companyId,
-			Integer status, Timestamp createTime) {
+			Integer status, Date createTime) {
 		this.name = name;
 		this.charge = charge;
 		this.companyId = companyId;
@@ -97,11 +99,11 @@ public class ProcedureDepartment implements java.io.Serializable {
 	}
 
 	@Column(name = "create_time", nullable = false, length = 19)
-	public Timestamp getCreateTime() {
+	public Date getCreateTime() {
 		return this.createTime;
 	}
 
-	public void setCreateTime(Timestamp createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 

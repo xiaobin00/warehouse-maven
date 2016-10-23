@@ -16,36 +16,36 @@
 	<context:component-scan base-package="light.mvc.controller" />
 
 	<!-- Spring MVC JSON配置 -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
 				<bean id="fastJsonHttpMessageConverter" class="light.mvc.utils.FastJsonHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
-							<value>text/html;charset=UTF-8</value><!-- 避免IE出现下载JSON文件的情况 -->
+							<value>text/html;charset=UTF-8</value>避免IE出现下载JSON文件的情况
 						</list>
 					</property>
 				</bean>
 			</list>
 		</property>
 	</bean>
-
+ -->
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/pages/" p:suffix=".jsp" />
 
 	<!-- 拦截器 -->
-	<mvc:interceptors>
+	<!-- <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<bean class="light.mvc.framework.interceptors.SecurityInterceptor">
-				<!-- 不需要权限验证的地址 -->
+				不需要权限验证的地址
 				<property name="excludeUrls">
 					<list>
-						<value>/access/tree</value><!-- 首页左侧功能菜单 -->
+						<value>/access/tree</value>首页左侧功能菜单
 					</list>
 				</property>
 			</bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 
 </beans>
