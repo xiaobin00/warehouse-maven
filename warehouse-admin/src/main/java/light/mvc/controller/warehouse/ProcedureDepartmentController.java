@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.alibaba.fastjson.JSONObject;
 
 import light.mvc.framework.web.BaseController;
 import light.mvc.model.basic.ProcedureDepartment;
@@ -47,5 +50,33 @@ public class ProcedureDepartmentController extends BaseController{
 		procedureDepartmentService.save(department);
 		return"redirect:/procedureDepartment/manager";
 		
+	}
+	
+	@RequestMapping("/toUpdate")
+	public String toUpdate(HttpServletRequest request){
+		String id= request.getParameter("id");
+		ProcedureDepartment department = procedureDepartmentService.getProcedureDepartmentById(Integer.parseInt(id));
+		request.setAttribute("department", department);
+		return "procedureDepartment/update";
+	}
+	
+	@RequestMapping("/update")
+	public String update(HttpServletRequest request){
+		String id =  request.getParameter("id");
+		String name =  request.getParameter("name");
+		String charge =  request.getParameter("charge");
+		ProcedureDepartment department = procedureDepartmentService.getProcedureDepartmentById(Integer.parseInt(id));
+		department.setName(name);
+		department.setCharge(charge);
+		procedureDepartmentService.updateProcedureDepartment(department);
+		return"redirect:/procedureDepartment/manager";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request) {
+
+		String id = request.getParameter("id");
+		procedureDepartmentService.deleteProcedureDepartment(Integer.parseInt(id));
+		return "redirect:/procedureDepartment/manager";
 	}
 }

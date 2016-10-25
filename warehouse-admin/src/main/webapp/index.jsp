@@ -62,7 +62,7 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="procedureDepartment/manager?id=1">工序列表</a>
+                                <a class="J_menuItem" href="procedureDepartment/manager">工序列表</a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="procedureDepartment/toAdd">工序添加</a>

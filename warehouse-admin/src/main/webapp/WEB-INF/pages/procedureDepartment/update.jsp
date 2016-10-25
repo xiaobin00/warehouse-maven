@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +21,7 @@
 			<div class="col-sm-12">
 			<div class="ibox float-e-margins">
 			 <div class="ibox-title">
-                        <h5>工序添加 <small>包括主要工序名称和负责人</small></h5>
+                        <h5>工序修改 <small>包括主要工序名称和负责人</small></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -40,21 +42,21 @@
                     </div>
 			
 				<div class="ibox float-e-margins">
-					<form method="get" action="/procedureDepartment/add" class="form-horizontal">
-					
+					<form method="get" action="/procedureDepartment/update" class="form-horizontal">
+					<input type="hidden" name="id" value="${department.id }">
 						<div class="form-group" style="margin-left: 15px;margin-right: 15pc">
 							<div style="margin-top: 5px"></div>
 							<label class="col-sm-2 control-label">名称:</label>
 
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="name">
+								<input type="text" class="form-control" name="name" value="${department.name }">
 							</div>
 						</div>
 						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
 							<label class="col-sm-2 control-label">负责人：</label>
 
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="charge">
+								<input type="text" class="form-control" name="charge" value="${department.charge }">
 							</div>
 						</div>
 						  <div class="form-group">

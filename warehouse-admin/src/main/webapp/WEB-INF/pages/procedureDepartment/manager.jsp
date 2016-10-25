@@ -27,6 +27,7 @@
 					<th>名字</th>
 					<th>负责人</th>
 					<th>创建时间</th>
+					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,6 +37,7 @@
 						<td>${item.name }</td>
 						<td>${item.charge }</td>
 						<td>${item.createTime }</td>
+						<td><a href="/procedureDepartment/toUpdate?id=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedureDepartment/delete?id=${item.id }" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a></td>
 					</tr>
 
 				</c:forEach>
@@ -46,16 +48,40 @@
  <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
-
-
     <script src="/js/plugins/jeditable/jquery.jeditable.js"></script>
-
     <!-- Data Tables -->
     <script src="/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
     <!-- 自定义js -->
     <script src="/js/content.js?v=1.0.0"></script>
+<script type="text/javascript">
 
+
+	
+	
+	function deleteById(id) {
+		if (confirm("确认删除吗？")) {
+			alert("删除");
+			$.ajax({
+				type : "POST",
+				url : "/procedureDepartment/delete",
+				data : {
+					id : id
+				},
+				success : function(data) {
+					if (data.code == 1) {
+						alert("删除成功");
+						location.href = "/procedureDepartment/manager";
+					} else {
+						alert("删除失败");
+					}
+					alert(data);
+				},
+				error : function() {
+					alert("网络异常");
+				}
+			});
+		}
+	}
+</script>
 </html>

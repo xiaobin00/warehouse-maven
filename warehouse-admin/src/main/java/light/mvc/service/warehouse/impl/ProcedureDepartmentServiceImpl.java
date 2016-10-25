@@ -24,5 +24,21 @@ public class ProcedureDepartmentServiceImpl implements ProcedureDepartmentServic
 		procedureDepartmentDao.save(department);
 		
 	}
+	@Override
+	public ProcedureDepartment getProcedureDepartmentById(int id) {
+		
+		return procedureDepartmentDao.get(ProcedureDepartment.class, id);
+	}
+	@Override
+	public void updateProcedureDepartment(ProcedureDepartment department) {
+		procedureDepartmentDao.update(department);
+		
+	}
+	
+	@Override
+	public void deleteProcedureDepartment(int id) {
+		ProcedureDepartment department = procedureDepartmentDao.get(ProcedureDepartment.class, id);
+		procedureDepartmentDao.delete(department);
+	}
 
 }

@@ -10,4 +10,10 @@ public interface ProcedureDepartmentService {
 	
 	public void save(ProcedureDepartment department);
 	
+	public ProcedureDepartment getProcedureDepartmentById(int id);
+	
+	public void updateProcedureDepartment(ProcedureDepartment department);
+	
+	public void deleteProcedureDepartment(int id);
+	
 }
