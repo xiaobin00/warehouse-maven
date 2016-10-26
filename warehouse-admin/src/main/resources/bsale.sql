@@ -560,3 +560,28 @@ CREATE TABLE `t_user_role` (
 -- Records of t_user_role
 -- ----------------------------
 INSERT INTO `t_user_role` VALUES ('1', '1');
+
+CREATE TABLE `procedure` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`name`  varchar(50) NULL ,
+`company_id`  int(11) NULL ,
+`status`  int(11) NOT NULL DEFAULT 0 ,
+`create_time`  timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+
+
+CREATE TABLE `procedure_by_department` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`procedure_id`  int(11) NULL ,
+`p_department_id`  int(11) NULL ,
+`sort`  int(11) NULL ,
+`status`  int(11) NOT NULL DEFAULT 0 ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+
+
+
