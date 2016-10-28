@@ -16,7 +16,6 @@ public class ProcedureDepartmentServiceImpl implements ProcedureDepartmentServic
 	private BaseDaoI<ProcedureDepartment> procedureDepartmentDao;
 	@Override
 	public List<ProcedureDepartment> getList() {
-		procedureDepartmentDao.find("from ProcedureDepartment");
 		return procedureDepartmentDao.find("from ProcedureDepartment");
 	}
 	@Override
