@@ -25,7 +25,6 @@
 				<tr>
 					<th>id</th>
 					<th>名字</th>
-					<th>负责人</th>
 					<th>创建时间</th>
 					<th>操作</th>
 				</tr>
@@ -35,9 +34,8 @@
 					<tr>
 						<td>${item.id }</td>
 						<td>${item.name }</td>
-						<td>${item.charge }</td>
 						<td>${item.createTime }</td>
-						<td><a href="/procedure/toUpdate?id=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedure/delete?id=${item.id }" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a></td>
+						<td><a href="/procedure/toUpdate?id=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedure/delete?id=${item.id }" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedure/toDetail?id=${item.id }">修改</a></td>
 					</tr>
 
 				</c:forEach>
@@ -46,8 +44,8 @@
 	</div>
 </body>
  <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/bootstrap.min.js?v=3.3.6"></script>
     <script src="/js/plugins/jeditable/jquery.jeditable.js"></script>
     <!-- Data Tables -->
     <script src="/js/plugins/dataTables/jquery.dataTables.js"></script>
