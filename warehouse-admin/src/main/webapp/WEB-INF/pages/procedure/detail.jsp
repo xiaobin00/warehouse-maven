@@ -15,24 +15,38 @@
 <link href="../css/animate.css" rel="stylesheet">
 <link href="../css/style.css?v=4.1.0" rel="stylesheet">
 </head>
+<style>
+.line-height{
+    line-height: 86px;
+}
+</style>
 <body class="gray-bg">
 
 	<div class="container">
-
+<div class="row" >
+<div class="col-md-1" style="text-align:center;">
+<span class="glyphicon glyphicon-plus line-height"></span>
+</div>
+ <div class="col-md-10">
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
 				<h4 class="list-group-item-heading">List group item heading</h4>
 				<p class="list-group-item-text">...</p>
 			</a>
 		</div>
-		<div style=""><span class="glyphicon glyphicon-arrow-down"></span></div>
+		</div>
+		<div class="col-md-1" style="text-align:center;">
+		<span class="glyphicon glyphicon-minus line-height"></span>
+		</div>
+</div>
+		<div style="text-align:center;"><span class="glyphicon glyphicon-arrow-down"></span></div>
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
 				<h4 class="list-group-item-heading">List group item heading</h4>
 				<p class="list-group-item-text">...</p>
 			</a>
 		</div>
-		<div style="display: center;"><span class="glyphicon glyphicon-arrow-down"></span></div>
+		<div style="text-align:center;"><span class="glyphicon glyphicon-arrow-down"></span></div>
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
 				<h4 class="list-group-item-heading">List group item heading</h4>
