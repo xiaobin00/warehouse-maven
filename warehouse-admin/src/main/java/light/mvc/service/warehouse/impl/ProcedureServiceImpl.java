@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import light.mvc.dao.BaseDaoI;
 import light.mvc.model.basic.Procedure;
+import light.mvc.model.basic.ProcedureDepartment;
 import light.mvc.service.warehouse.ProcedureService;
 @Service
 public class ProcedureServiceImpl implements ProcedureService {
 	
 	@Autowired
 	private BaseDaoI<Procedure> procedureDao;
+	@Autowired
+	private BaseDaoI<ProcedureDepartment> procedureDepartmentDao;
 	@Override
 	public List<Procedure> getList() {
 		return procedureDao.find("from Procedure");
@@ -38,6 +41,11 @@ public class ProcedureServiceImpl implements ProcedureService {
 	public void deleteProcedure(int id) {
 		Procedure department = procedureDao.get(Procedure.class, id);
 		procedureDao.delete(department);
+	}
+
+	@Override
+	public List<ProcedureDepartment> getProcedureDepartmentList(int companyId) {
+		return procedureDepartmentDao.find("from Procedure where companyId="+companyId);
 	}
 
 }

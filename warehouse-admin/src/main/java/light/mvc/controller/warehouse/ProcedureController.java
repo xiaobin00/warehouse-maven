@@ -1,6 +1,7 @@
 package light.mvc.controller.warehouse;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import light.mvc.framework.web.BaseController;
 import light.mvc.model.basic.Procedure;
+import light.mvc.model.basic.ProcedureDepartment;
 import light.mvc.service.warehouse.ProcedureService;
 
 @Controller
@@ -73,7 +75,8 @@ public class ProcedureController extends BaseController{
 	
 	@RequestMapping("/toDetail")
 	public String toDetail(HttpServletRequest request){
-		
+		List<ProcedureDepartment> procedureDepartments =procedureService.getProcedureDepartmentList(1);
+		request.setAttribute("procedureDepartments", procedureDepartments);
 		return "/procedure/detail";
 	}
 }
