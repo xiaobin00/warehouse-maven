@@ -45,7 +45,7 @@ public class ProcedureServiceImpl implements ProcedureService {
 
 	@Override
 	public List<ProcedureDepartment> getProcedureDepartmentList(int companyId) {
-		return procedureDepartmentDao.find("from Procedure where companyId="+companyId);
+		return procedureDepartmentDao.find("from ProcedureDepartment where companyId="+companyId);
 	}
 
 }

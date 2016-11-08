@@ -24,7 +24,15 @@
 </style>
 <body class="gray-bg">
 	<div class="row">
-	<div class="col-md-2">1111</div>
+	<div class="col-md-2">
+<ul class="list-group" style="margin-top: 20px;margin-left: 20px;">
+<c:forEach items="${procedureDepartments }" var="item">
+ <li class="list-group-item">${item.name } 
+ <span class="glyphicon glyphicon-plus" style="margin-left: 20px;"></span></li>
+</c:forEach>
+</ul>
+
+	</div>
 	<div class="col-md-1">
 	<div class="container">
 		<div class="row">
