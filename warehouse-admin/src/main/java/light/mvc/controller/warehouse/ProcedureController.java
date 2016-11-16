@@ -79,4 +79,9 @@ public class ProcedureController extends BaseController{
 		request.setAttribute("procedureDepartments", procedureDepartments);
 		return "/procedure/detail";
 	}
+	@RequestMapping("/toDetail")
+	public String updateDetai(HttpServletRequest request){
+		
+		return "redirect:/procedure/toDetail";
+	}
 }

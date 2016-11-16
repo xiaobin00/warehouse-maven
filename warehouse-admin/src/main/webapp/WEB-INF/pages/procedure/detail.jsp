@@ -23,40 +23,73 @@
 }
 </style>
 <body class="gray-bg">
-	<div class="row">
-	<div class="col-md-2">
-<ul class="list-group" style="margin-top: 20px;margin-left: 20px;">
-<c:forEach items="${procedureDepartments }" var="item">
- <li class="list-group-item">${item.name } 
- <span class="glyphicon glyphicon-plus" style="margin-left: 20px;"></span></li>
-</c:forEach>
-</ul>
+<div class="wrapper wrapper-content">
+	 <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>流程设置</h5>
+                    </div>
+                    <div class="ibox-content">
 
-	</div>
-	<div class="col-md-1">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-1" style="text-align: center;">
-				<span class="glyphicon glyphicon-plus line-height"></span>
-			</div>
-			<div class="col-md-10">
-				<div class="list-group">
-					<a href="#" class="list-group-item active">
-						<h4 class="list-group-item-heading">List group item heading</h4>
-						<p class="list-group-item-text">...</p>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-1" style="text-align: center;">
-				<span class="glyphicon glyphicon-minus line-height"></span>
-			</div>
-		</div>
-		<div style="text-align: center;">
-			<span class="glyphicon glyphicon-arrow-down"></span>
-		</div>
-	</div>
-	</div>
-	</div>
+                        <p>通过下表设置每个流程所需要的工序以及工序的次序</p>
+                        <div class="table-responsive">
+                        <form action="">
+                            <table class="table table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th>流程</th>
+                                        <th>
+                                        	 流程次序
+                                        </th>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="item" items="${procedureDepartments }">
+                                    <tr>
+                                        <th class="text-nowrap">${item.name }</th>
+                                        <td> <input type="text" placeholder="请输入次序" class="form-control"></td>
+                                    </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                              <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                    <button class="btn btn-white" type="reset">重置</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+         <div class="col-sm-12">
+                        <div class="ibox float-e-margins">
+                        <div class="" id="ibox-content">
+
+                            <div id="vertical-timeline" class="vertical-container light-timeline">
+                              
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon navy-bg">
+                                        <i class="glyphicon glyphicon-arrow-down"></i>
+                                    </div>
+
+                                    <div class="vertical-timeline-content">
+                                        <h2>会议</h2>
+                                    <small>2月3日</small>
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+        </div>
 </body>
 <!-- 全局js -->
 <script src="http://localhost:8080/js/jquery.min.js?v=2.1.4"></script>
