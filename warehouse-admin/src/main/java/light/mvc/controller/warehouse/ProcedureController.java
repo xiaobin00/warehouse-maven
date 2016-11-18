@@ -2,6 +2,7 @@ package light.mvc.controller.warehouse;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.alibaba.fastjson.JSONObject;
 
 import light.mvc.framework.web.BaseController;
 import light.mvc.model.basic.Procedure;
@@ -79,9 +82,11 @@ public class ProcedureController extends BaseController{
 		request.setAttribute("procedureDepartments", procedureDepartments);
 		return "/procedure/detail";
 	}
-	@RequestMapping("/toDetail")
+	
+	@RequestMapping("/updateDetail")
 	public String updateDetai(HttpServletRequest request){
-		
+		Map<String,String[]> map = request.getParameterMap();
+		System.out.println(JSONObject.toJSONString(map));
 		return "redirect:/procedure/toDetail";
 	}
 }

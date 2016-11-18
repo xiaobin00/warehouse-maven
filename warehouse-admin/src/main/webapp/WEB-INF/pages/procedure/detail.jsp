@@ -34,7 +34,7 @@
 
                         <p>通过下表设置每个流程所需要的工序以及工序的次序</p>
                         <div class="table-responsive">
-                        <form action="">
+                        <form ethod="post" action="/procedure/updateDetail">
                             <table class="table table-bordered ">
                                 <thead>
                                     <tr>
@@ -46,8 +46,11 @@
                                 <tbody>
                                 <c:forEach var="item" items="${procedureDepartments }">
                                     <tr>
+                                    	
                                         <th class="text-nowrap">${item.name }</th>
-                                        <td> <input type="text" placeholder="请输入次序" class="form-control"></td>
+                                        <td> 
+                                      
+                                        <input type="number" placeholder="请输入次序" name="${item.id }" class="form-control"></td>
                                     </tr>
                                     </c:forEach>
                                 </tbody>
