@@ -26,5 +26,10 @@ public interface ProcedureService {
 	* @date：2016年11月29日 下午4:20:07 
 	* @param map
 	*/
-	public void saveProcedureDetail(Map<String,String[]> map);
+	public void saveProcedureDetail(Map<String,String[]> map,int procedureId);
+	
+	/**获取流程工序列表
+	 * @param procedureId
+	 */
+	public List<ProcedureDepartment> getProcedureDepartmentByProcedureId(int procedureId);
 }

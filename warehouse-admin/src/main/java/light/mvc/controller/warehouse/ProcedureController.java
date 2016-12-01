@@ -78,15 +78,20 @@ public class ProcedureController extends BaseController{
 	
 	@RequestMapping("/toDetail")
 	public String toDetail(HttpServletRequest request){
+		int id = Integer.parseInt(request.getParameter("id"));
 		List<ProcedureDepartment> procedureDepartments =procedureService.getProcedureDepartmentList(1);
+		List<ProcedureDepartment> sorts = procedureService.getProcedureDepartmentByProcedureId(id);
 		request.setAttribute("procedureDepartments", procedureDepartments);
+		request.setAttribute("sorts", sorts);
+		request.setAttribute("id", id);
 		return "/procedure/detail";
 	}
 	
 	@RequestMapping("/updateDetail")
 	public String updateDetai(HttpServletRequest request){
 		Map<String,String[]> map = request.getParameterMap();
-		
-		return "redirect:/procedure/toDetail";
+		int procedureId = Integer.parseInt(request.getParameter("procedureId"));
+		procedureService.saveProcedureDetail(map, procedureId);
+		return "redirect:/procedure/toDetail?id="+procedureId;
 	}
 }

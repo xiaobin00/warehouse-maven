@@ -1,5 +1,7 @@
 package light.mvc.service.warehouse.impl;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +20,7 @@ public class ProcedureServiceImpl implements ProcedureService {
 	private BaseDaoI<Procedure> procedureDao;
 	@Autowired
 	private BaseDaoI<ProcedureDepartment> procedureDepartmentDao;
-	
+	@Autowired
 	private BaseDaoI<ProcedureByDepartment> prodedureByDepartmentDao;
 	@Override
 	public List<Procedure> getList() {
@@ -53,10 +55,35 @@ public class ProcedureServiceImpl implements ProcedureService {
 	}
 
 	@Override
-	public void saveProcedureDetail(Map<String, String[]> map) {
+	public void saveProcedureDetail(Map<String, String[]> map,int procedureId) {
 		for (Map.Entry<String, String[]> entry : map.entrySet()) {
-			
+			if(!entry.getKey().matches("[0-9]+")){
+				continue;
+			}
+			int pDepartmenetId = Integer.parseInt(entry.getKey());
+			int sort = Integer.parseInt( entry.getValue()[0]);
+			ProcedureByDepartment byDepartment = new ProcedureByDepartment();
+			byDepartment.setCreateTime(new Date());
+			byDepartment.setPDepartmentId(pDepartmenetId);
+			byDepartment.setProcedureId(procedureId);
+			byDepartment.setSort(sort);
+			byDepartment.setStatus(1);
+			prodedureByDepartmentDao.save(byDepartment);
 		}
 	}
+
+	@Override
+	public List<ProcedureDepartment> getProcedureDepartmentByProcedureId(int procedureId) {
+		List<ProcedureByDepartment> prodedureByDepartments = prodedureByDepartmentDao
+				.find(" from ProcedureByDepartment p where p.procedureId = " + procedureId + " order by p.sort asc");;
+		List<ProcedureDepartment> procedureDepartments = new ArrayList<ProcedureDepartment>();
+		for (ProcedureByDepartment procedureByDepartment : prodedureByDepartments) {
+			procedureDepartments.add(procedureDepartmentDao
+					.find(" from ProcedureDepartment where id = " + procedureByDepartment.getPDepartmentId()).get(0));
+		}
+		return procedureDepartments;
+	}
+
+	
 
 }

@@ -35,6 +35,7 @@
                         <p>通过下表设置每个流程所需要的工序以及工序的次序</p>
                         <div class="table-responsive">
                         <form ethod="post" action="/procedure/updateDetail">
+                        <input type="hidden" name="procedureId" value="${id }">
                             <table class="table table-bordered ">
                                 <thead>
                                     <tr>
@@ -76,18 +77,20 @@
                         <div class="" id="ibox-content">
 
                             <div id="vertical-timeline" class="vertical-container light-timeline">
-                              
+                              <c:forEach var="item" items="${sorts }">
                                 <div class="vertical-timeline-block">
                                     <div class="vertical-timeline-icon navy-bg">
                                         <i class="glyphicon glyphicon-arrow-down"></i>
                                     </div>
 
                                     <div class="vertical-timeline-content">
-                                        <h2>会议</h2>
-                                    <small>2月3日</small>
+                                        <h2>${item.name }</h2>
+                                    <small>${item.charge }</small>
                                 </span>
                                     </div>
                                 </div>
+                                </c:forEach>
+                               
                             </div>
                         </div>
                         </div>
