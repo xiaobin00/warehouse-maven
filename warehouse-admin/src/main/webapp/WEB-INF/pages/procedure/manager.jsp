@@ -35,7 +35,7 @@
 						<td>${item.id }</td>
 						<td>${item.name }</td>
 						<td>${item.createTime }</td>
-						<td><a href="/procedure/toUpdate?id=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedure/delete?id=${item.id }" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedure/toDetail?id=${item.id }">修改</a></td>
+						<td><a href="/procedure/toUpdate?id=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedure/delete?id=${item.id }" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/procedure/toDetail?id=${item.id }">详细</a></td>
 					</tr>
 
 				</c:forEach>

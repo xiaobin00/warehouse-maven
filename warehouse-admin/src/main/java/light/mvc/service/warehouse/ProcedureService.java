@@ -1,6 +1,7 @@
 package light.mvc.service.warehouse;
 
 import java.util.List;
+import java.util.Map;
 
 import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureDepartment;
@@ -18,4 +19,12 @@ public interface ProcedureService {
 	public void deleteProcedure(int id);
 	
 	public List<ProcedureDepartment> getProcedureDepartmentList(int companyId);
+	
+	/**     
+	* 保存详细流程
+	* @author：zhenghaibin 
+	* @date：2016年11月29日 下午4:20:07 
+	* @param map
+	*/
+	public void saveProcedureDetail(Map<String,String[]> map);
 }

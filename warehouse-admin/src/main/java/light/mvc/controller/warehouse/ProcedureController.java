@@ -86,7 +86,7 @@ public class ProcedureController extends BaseController{
 	@RequestMapping("/updateDetail")
 	public String updateDetai(HttpServletRequest request){
 		Map<String,String[]> map = request.getParameterMap();
-		System.out.println(JSONObject.toJSONString(map));
+		
 		return "redirect:/procedure/toDetail";
 	}
 }
