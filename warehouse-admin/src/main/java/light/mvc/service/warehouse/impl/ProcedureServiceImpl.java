@@ -74,6 +74,7 @@ public class ProcedureServiceImpl implements ProcedureService {
 
 	@Override
 	public List<ProcedureDepartment> getProcedureDepartmentByProcedureId(int procedureId) {
+		prodedureByDepartmentDao.executeHql("detele from ProcedureByDepartment where procedureId="+procedureId);
 		List<ProcedureByDepartment> prodedureByDepartments = prodedureByDepartmentDao
 				.find(" from ProcedureByDepartment p where p.procedureId = " + procedureId + " order by p.sort asc");;
 		List<ProcedureDepartment> procedureDepartments = new ArrayList<ProcedureDepartment>();
