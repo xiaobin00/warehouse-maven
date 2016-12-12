@@ -85,6 +85,23 @@
                         </ul>
                     </li>
                    
+                   
+                   <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">仓库管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                         </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="goods/manager">物品列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="goods/toAdd">物品添加</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -19,6 +19,19 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for `t_access`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_access`;
+
+CREATE TABLE `base_goods` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`name`  varchar(11) NULL ,
+`company_id`  int(11) NULL ,
+`status`  int(11) NOT NULL DEFAULT 0 ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+
+
+
 CREATE TABLE `t_access` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
