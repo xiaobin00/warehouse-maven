@@ -29,6 +29,21 @@ CREATE TABLE `base_goods` (
 PRIMARY KEY (`id`)
 )
 ;
+CREATE TABLE `goods_relation_info` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`name`  varchar(50) NULL ,
+`count`  int(11) NULL ,
+`price`  int(11) NULL ,
+`specifications`  varchar(50) NULL ,
+`type`  int(11) NULL ,
+`status`  int(11) NULL ,
+`tatol_price`  int(11) NULL ,
+`describe`  varchar(255) NULL ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+
 
 
 
