@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "base_goods", catalog = "bsale")
-public class BaseGoods implements java.io.Serializable {
+public class BaseGoodsInfo implements java.io.Serializable {
 	
 	// Fields
 
@@ -26,17 +26,17 @@ public class BaseGoods implements java.io.Serializable {
 		// Constructors
 
 		/** default constructor */
-		public BaseGoods() {
+		public BaseGoodsInfo() {
 		}
 
 		/** minimal constructor */
-		public BaseGoods(Integer status, Timestamp createTime) {
+		public BaseGoodsInfo(Integer status, Timestamp createTime) {
 			this.status = status;
 			this.createTime = createTime;
 		}
 
 		/** full constructor */
-		public BaseGoods(String name, Integer companyId, Integer status,
+		public BaseGoodsInfo(String name, Integer companyId, Integer status,
 				Timestamp createTime) {
 			this.name = name;
 			this.companyId = companyId;

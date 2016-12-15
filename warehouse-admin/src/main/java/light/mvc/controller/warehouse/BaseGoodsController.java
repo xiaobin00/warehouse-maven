@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.alibaba.fastjson.JSONObject;
 
 import light.mvc.framework.web.BaseController;
-import light.mvc.model.basic.BaseGoods;
+import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureDepartment;
 import light.mvc.service.warehouse.GoodsService;
@@ -42,7 +42,7 @@ public class BaseGoodsController extends BaseController{
 	@RequestMapping("/add")
 	public String add(HttpServletRequest request){
 		String name = request.getParameter("name");
-		BaseGoods baseGoods = new BaseGoods();
+		BaseGoodsInfo baseGoods = new BaseGoodsInfo();
 		baseGoods.setName(name);
 		baseGoods.setCompanyId(1);
 		baseGoods.setCreateTime(new Date());
@@ -55,7 +55,7 @@ public class BaseGoodsController extends BaseController{
 	@RequestMapping("/toUpdate")
 	public String toUpdate(HttpServletRequest request){
 		String id= request.getParameter("id");
-		BaseGoods goods = goodsService.getGoodsById(Integer.parseInt(id));
+		BaseGoodsInfo goods = goodsService.getGoodsById(Integer.parseInt(id));
 		request.setAttribute("goods", goods);
 		return "goods/update";
 	}
@@ -64,7 +64,7 @@ public class BaseGoodsController extends BaseController{
 	public String update(HttpServletRequest request){
 		String id =  request.getParameter("id");
 		String name =  request.getParameter("name");
-		BaseGoods goods = goodsService.getGoodsById(Integer.parseInt(id));
+		BaseGoodsInfo goods = goodsService.getGoodsById(Integer.parseInt(id));
 		goods.setName(name);
 		goodsService.updateGoods(goods);
 		return"redirect:/goods/manager";

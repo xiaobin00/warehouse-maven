@@ -7,31 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import light.mvc.dao.BaseDaoI;
-import light.mvc.model.basic.BaseGoods;
+import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.service.warehouse.GoodsService;
 @Service
 public class GoodsServiceImpl implements GoodsService {
 	@Autowired
-	private BaseDaoI<BaseGoods> goodsDao;
+	private BaseDaoI<BaseGoodsInfo> goodsDao;
 	
 	@Override
-	public List<BaseGoods> getList(int companyId) {
+	public List<BaseGoodsInfo> getList(int companyId) {
 		return goodsDao.find("from BaseGoods where companyId="+companyId);
 	}
 
 	@Override
-	public void save(BaseGoods goods) {
+	public void save(BaseGoodsInfo goods) {
 		goodsDao.save(goods);
 		
 	}
 
 	@Override
-	public BaseGoods getGoodsById(int id) {
+	public BaseGoodsInfo getGoodsById(int id) {
 		return goodsDao.get("from BaseGoods where id=" + id);
 	}
 
 	@Override
-	public void updateGoods(BaseGoods goods) {
+	public void updateGoods(BaseGoodsInfo goods) {
 		goodsDao.update(goods);
 	}
 

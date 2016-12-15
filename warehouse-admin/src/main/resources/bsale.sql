@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_access`;
 
-CREATE TABLE `base_goods` (
+CREATE TABLE `base_goods_info` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,
 `name`  varchar(11) NULL ,
 `company_id`  int(11) NULL ,
@@ -29,8 +29,9 @@ CREATE TABLE `base_goods` (
 PRIMARY KEY (`id`)
 )
 ;
-CREATE TABLE `goods_relation_info` (
+CREATE TABLE `goods_record_info` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,
+`company_id`  int(11) NULL ,
 `name`  varchar(50) NULL ,
 `count`  int(11) NULL ,
 `price`  int(11) NULL ,
