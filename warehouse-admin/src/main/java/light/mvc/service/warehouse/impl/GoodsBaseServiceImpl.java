@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 import light.mvc.dao.BaseDaoI;
 import light.mvc.model.basic.BaseGoodsInfo;
-import light.mvc.service.warehouse.GoodsService;
+import light.mvc.service.warehouse.GoodsBaseService;
 @Service
-public class GoodsServiceImpl implements GoodsService {
+public class GoodsBaseServiceImpl implements GoodsBaseService {
 	@Autowired
 	private BaseDaoI<BaseGoodsInfo> goodsDao;
 	

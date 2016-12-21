@@ -7,7 +7,7 @@ import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureDepartment;
 
-public interface GoodsService {
+public interface GoodsBaseService {
 	
 	public List<BaseGoodsInfo> getList(int companyId);
 

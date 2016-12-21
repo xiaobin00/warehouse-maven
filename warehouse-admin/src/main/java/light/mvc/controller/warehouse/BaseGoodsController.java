@@ -18,25 +18,25 @@ import light.mvc.framework.web.BaseController;
 import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureDepartment;
-import light.mvc.service.warehouse.GoodsService;
+import light.mvc.service.warehouse.GoodsBaseService;
 import light.mvc.service.warehouse.ProcedureService;
 
 @Controller
-@RequestMapping("/goods")
+@RequestMapping("/goods/base")
 public class BaseGoodsController extends BaseController{
 	@Resource
-	private GoodsService goodsService;
+	private GoodsBaseService goodsService;
 	
 	@RequestMapping("/manager")
 	public String getList(HttpServletRequest request,HttpServletResponse response,Model model){
 		//request.setAttribute("listData", procedureDepartmentService.getList());
 		model.addAttribute("listData", goodsService.getList(1));
-		return "goods/manager";
+		return "goodsBase/manager";
 	}
 	
 	@RequestMapping("/toAdd")
 	public String toAdd(){
-		return "goods/add";
+		return "goodsBase/add";
 	}
 	
 	@RequestMapping("/add")
@@ -48,7 +48,7 @@ public class BaseGoodsController extends BaseController{
 		baseGoods.setCreateTime(new Date());
 		baseGoods.setStatus(1);
 		goodsService.save(baseGoods);
-		return"redirect:/goods/manager";
+		return"redirect:/goods/base/manager";
 		
 	}
 	
@@ -57,7 +57,7 @@ public class BaseGoodsController extends BaseController{
 		String id= request.getParameter("id");
 		BaseGoodsInfo goods = goodsService.getGoodsById(Integer.parseInt(id));
 		request.setAttribute("goods", goods);
-		return "goods/update";
+		return "goodsBase/update";
 	}
 	
 	@RequestMapping("/update")
@@ -75,7 +75,7 @@ public class BaseGoodsController extends BaseController{
 
 		String id = request.getParameter("id");
 		goodsService.deleteGoods(Integer.parseInt(id));
-		return "redirect:/goods/manager";
+		return "redirect:/goods/base/manager";
 	}
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="/inc/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -95,10 +96,18 @@
                          </ul>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="goods/manager">物品列表</a>
+                                <a class="J_menuItem" href="goods/base/manager">物品列表</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="goods/toAdd">物品添加</a>
+                                <a class="J_menuItem" href="goods/base/toAdd">物品添加</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="goods/manager">货品记录</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="goods/toAdd">货品记录添加</a>
                             </li>
                         </ul>
                     </li>
