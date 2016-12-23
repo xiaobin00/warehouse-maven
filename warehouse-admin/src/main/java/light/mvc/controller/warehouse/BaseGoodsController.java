@@ -67,7 +67,7 @@ public class BaseGoodsController extends BaseController{
 		BaseGoodsInfo goods = goodsService.getGoodsById(Integer.parseInt(id));
 		goods.setName(name);
 		goodsService.updateGoods(goods);
-		return"redirect:/goods/manager";
+		return"redirect:/goods/base/manager";
 	}
 	
 	@RequestMapping("/delete")

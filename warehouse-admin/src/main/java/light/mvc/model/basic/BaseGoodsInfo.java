@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "base_goods", catalog = "bsale")
+@Table(name = "base_goods_info", catalog = "bsale")
 public class BaseGoodsInfo implements java.io.Serializable {
 	
 	// Fields

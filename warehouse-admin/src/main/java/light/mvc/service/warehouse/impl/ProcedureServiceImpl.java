@@ -69,6 +69,7 @@ public class ProcedureServiceImpl implements ProcedureService {
 			byDepartment.setSort(sort);
 			byDepartment.setStatus(1);
 			prodedureByDepartmentDao.save(byDepartment);
+			prodedureByDepartmentDao.executeHql("detele from ProcedureByDepartment where procedureId="+procedureId);
 		}
 	}
 

@@ -16,7 +16,7 @@ public class GoodsBaseServiceImpl implements GoodsBaseService {
 	
 	@Override
 	public List<BaseGoodsInfo> getList(int companyId) {
-		return goodsDao.find("from BaseGoods where companyId="+companyId);
+		return goodsDao.find("from BaseGoodsInfo where companyId="+companyId);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class GoodsBaseServiceImpl implements GoodsBaseService {
 
 	@Override
 	public BaseGoodsInfo getGoodsById(int id) {
-		return goodsDao.get("from BaseGoods where id=" + id);
+		return goodsDao.get("from BaseGoodsInfo where id=" + id);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class GoodsBaseServiceImpl implements GoodsBaseService {
 
 	@Override
 	public void deleteGoods(int id) {
-		goodsDao.executeHql("delete BaseGoods where id = "+id);
+		goodsDao.executeHql("delete BaseGoodsInfo where id = "+id);
 	}
 	
 	

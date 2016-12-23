@@ -1,10 +1,10 @@
-<%@ page trimDirectiveWhitespaces="true" %> 
+<%-- <%@ page trimDirectiveWhitespaces="true" %> 
 <%@page import="com.alibaba.fastjson.JSONObject"%>
-<%-- <%@page import="com.frogs.system.util.RecordStatusEnum"%>
+<%@page import="com.frogs.system.util.RecordStatusEnum"%>
 <%@page import="com.frogs.system.util.DataShowTypeEnum"%>
 <%@page import="com.frogs.system.util.DataTypeInfoEnum"%>
 <%@page import="com.frogs.system.util.DataTypeLevelEnum"%>
-<%@page import="com.frogs.system.util.MeasureDataTypeEnum"%> --%>
+<%@page import="com.frogs.system.util.MeasureDataTypeEnum"%>
 <%@ page import="org.springframework.web.context.WebApplicationContext" %>
 <%@ page import="com.frogs.framework.web.filter.SpringWebContext" %>
 <%@ page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
@@ -122,7 +122,7 @@
 <c:set var="sexMap" value="<%=FormSelectLoader.getSexMap()%>"/>
 <c:set var="defaultImages" value="<%=defaultImages%>"></c:set>
 <c:set var="DEFAULT_GOODS_IMG" value="https://img.frogshealth.com/img/default/img_pic180x180.jpg"></c:set>
-<%-- <c:set var="W_DOMAIN" value="//w.frogshealth.com"></c:set> --%>
+<c:set var="W_DOMAIN" value="//w.frogshealth.com"></c:set>
 <c:set var="W_DOMAIN" value="<%=serverDomain %>"></c:set>
 <c:set var="IMG_DOMAIN" value="//img.frogshealth.com"></c:set>
-<c:set var="STATIC_DOMAIN" value="//static.frogshealth.com"></c:set>
+<c:set var="STATIC_DOMAIN" value="//static.frogshealth.com"></c:set> --%>

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
+<%@page import="light.mvc.model._enum.GoodsDealType"%>
+<%
+request.setAttribute("typeList", GoodsDealType.values());
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,16 +46,44 @@
                     </div>
 			
 				<div class="ibox float-e-margins">
-					<form method="get" action="/goods/base/add" class="form-horizontal">
+					<form method="get" action="/goods/add" class="form-horizontal">
 					
 						<div class="form-group" style="margin-left: 15px;margin-right: 15pc">
 							<div style="margin-top: 5px"></div>
 							<label class="col-sm-2 control-label">名称:</label>
 
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="name">
+								<select class="form-control m-b" name="name">
+                                       <c:forEach items="${baseGoodsInfos }" var="info">
+                                        <option value="${info.name }">${info.name }</option>
+										</c:forEach>
+                                    </select>
+							</div>
+							</div>
+							
+							<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
+							<div style="margin-top: 5px"></div>
+							<label class="col-sm-2 control-label">记录类型：</label>
+
+							<div class="col-sm-10">
+								<select class="form-control m-b" name="type">
+                                       <c:forEach items="${typeList }" var="type">
+                                        <option value="${type.id }">${type.name }</option>
+										</c:forEach>
+                                    </select>
 							</div>
 						</div>
+						
+						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
+							<div style="margin-top: 5px"></div>
+							<label class="col-sm-2 control-label">价格(单位：分)：</label>
+
+							<div class="col-sm-10">
+								<input type="number" name="price"> 
+							</div>
+						</div>
+						
+						
 						  <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <button class="btn btn-primary" type="submit">保存内容</button>
