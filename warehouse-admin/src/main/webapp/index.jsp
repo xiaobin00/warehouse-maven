@@ -92,7 +92,6 @@
                             <span class="nav-label">仓库管理</span>
                             <span class="fa arrow"></span>
                         </a>
-                         </ul>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a class="J_menuItem" href="goods/base/manager">物品列表</a>
@@ -100,8 +99,6 @@
                             <li>
                                 <a class="J_menuItem" href="goods/base/toAdd">物品添加</a>
                             </li>
-                        </ul>
-                        <ul class="nav nav-second-level">
                             <li>
                                 <a class="J_menuItem" href="goods/manager">货品记录</a>
                             </li>
