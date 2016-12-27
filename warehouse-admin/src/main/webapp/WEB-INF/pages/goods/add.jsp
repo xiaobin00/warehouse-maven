@@ -19,7 +19,26 @@ request.setAttribute("typeList", GoodsDealType.values());
 <link href="/css/animate.css" rel="stylesheet">
 <link href="/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
+<script type="text/javascript">
+$(document).ready(function(){ 
+	alert("数据有误")
+	var tip = "${tip}";
+	if(tip != ""){
+		alert(tip)
+	}
+}); 
+
+function myfun()
+{
+    alert("this window.onload");
+}
+</script>
 <body class="gray-bg">
+<c:if test="${tip != null}">
+<div class="alert alert-danger">
+     ${tip}
+</div>
+</c:if>
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">
 			<div class="col-sm-12">
@@ -73,16 +92,50 @@ request.setAttribute("typeList", GoodsDealType.values());
                                     </select>
 							</div>
 						</div>
+						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
+							<div style="margin-top: 5px"></div>
+							<label class="col-sm-2 control-label">数量：</label>
+
+							<div class="col-sm-10">
+								<input type="number" name="count" id="count" onchange="translation()"> 
+							</div>
+						</div>
 						
 						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
 							<div style="margin-top: 5px"></div>
 							<label class="col-sm-2 control-label">价格(单位：分)：</label>
 
 							<div class="col-sm-10">
-								<input type="number" name="price"> 
+								<input type="number" name="price" id="price" onchange="translation()"> <nobr id="priceYuan">0元</nobr>
 							</div>
 						</div>
 						
+						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
+							<div style="margin-top: 5px"></div>
+							<label class="col-sm-2 control-label">总价格(单位：分)：</label>
+
+							<div class="col-sm-10">
+								<input type="number" name="tatolPrice" id="tatolPrice" readonly="true"> <nobr id="tatolPriceYuan">0元</nobr>
+							</div>
+						</div>
+						
+						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
+							<div style="margin-top: 5px"></div>
+							<label class="col-sm-2 control-label">规格：</label>
+
+							<div class="col-sm-10">
+								<textarea rows="2" cols="21" name="specifications"></textarea>
+							</div>
+						</div>
+						
+						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
+							<div style="margin-top: 5px"></div>
+							<label class="col-sm-2 control-label">详情：</label>
+
+							<div class="col-sm-10">
+								<textarea rows="5" cols="21" name="describe"></textarea>
+							</div>
+						</div>
 						
 						  <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -106,4 +159,22 @@ request.setAttribute("typeList", GoodsDealType.values());
 
 <!-- iCheck -->
 <script src="/js/plugins/iCheck/icheck.min.js"></script>
+<script type="text/javascript">
+function translation() {
+	var price = $("#price").val();
+	var count = $("#count").val();
+	if(count != "" && price != ""){
+		$("#tatolPrice").val(price*count);
+		$("#tatolPriceYuan").html(price/100*count+"元");
+	}else{
+		$("#tatolPrice").val(0);
+		$("#tatolPriceYuan").html("0元");
+	}
+	if(price != ""){
+		 $("#priceYuan").html(price/100+"元");
+	}
+}
+
+</script>
+
 </html>

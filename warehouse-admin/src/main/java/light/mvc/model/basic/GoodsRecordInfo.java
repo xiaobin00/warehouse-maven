@@ -109,14 +109,14 @@ public class GoodsRecordInfo implements java.io.Serializable{
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	@Column(name = "tatolPrice")
+	@Column(name = "tatol_price")
 	public Integer getTatolPrice() {
 		return tatolPrice;
 	}
 	public void setTatolPrice(Integer tatolPrice) {
 		this.tatolPrice = tatolPrice;
 	}
-	@Column(name = "describe", length = 255)
+	@Column(name = "`describe`", length = 255)
 	public String getDescribe() {
 		return describe;
 	}
