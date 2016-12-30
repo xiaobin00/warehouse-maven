@@ -33,6 +33,8 @@ public class GoodsRecordAddRequest extends Request {
 	private String specifications;
 	
 	private String describe;
+	
+	private int parentId;
 	@Override
 	public void parse(HttpServletRequest request) {
 		HttpRequestInfo info =new HttpRequestInfo(request);
@@ -44,6 +46,7 @@ public class GoodsRecordAddRequest extends Request {
 		this.type = info.getIntParameter("type", 0);
 		this.specifications = info.getParameter("specifications", "");
 		this.describe = info.getParameter("describe", "");
+		this.parentId = info.getIntParameter("parentId", 0);
 		if(StringUtil.isEmpty(name) || count < 1 || type < 0){
 			throw new RequestIllegalException("数据异常");
 		}
@@ -95,6 +98,12 @@ public class GoodsRecordAddRequest extends Request {
 	}
 	public void setCompanyId(int companyId) {
 		this.companyId = companyId;
+	}
+	public int getParentId() {
+		return parentId;
+	}
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
 	}
 	
 	

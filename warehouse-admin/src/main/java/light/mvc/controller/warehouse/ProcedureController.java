@@ -91,6 +91,7 @@ public class ProcedureController extends BaseController{
 	public String updateDetai(HttpServletRequest request){
 		Map<String,String[]> map = request.getParameterMap();
 		int procedureId = Integer.parseInt(request.getParameter("procedureId"));
+		procedureService.deleteProcedureDepartmentByProcedureId(procedureId);
 		procedureService.saveProcedureDetail(map, procedureId);
 		return "redirect:/procedure/toDetail?id="+procedureId;
 	}

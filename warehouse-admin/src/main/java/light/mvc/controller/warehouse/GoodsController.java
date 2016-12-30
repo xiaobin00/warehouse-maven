@@ -47,6 +47,7 @@ public class GoodsController extends BaseController{
 		int companyId = 1;
 		List<BaseGoodsInfo> baseGoodsInfos = goodsService.getBaseGoodsInfos(companyId);
 		model.addAttribute("baseGoodsInfos", baseGoodsInfos);
+		model.addAttribute("parentId",request.getParameter("parentId"));
 		return "goods/add";
 	}
 

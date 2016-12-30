@@ -66,7 +66,7 @@ function myfun()
 			
 				<div class="ibox float-e-margins">
 					<form method="get" action="/goods/add" class="form-horizontal">
-					
+						<input type="hidden" name="parentId" value="${parentId }">
 						<div class="form-group" style="margin-left: 15px;margin-right: 15pc">
 							<div style="margin-top: 5px"></div>
 							<label class="col-sm-2 control-label">名称:</label>

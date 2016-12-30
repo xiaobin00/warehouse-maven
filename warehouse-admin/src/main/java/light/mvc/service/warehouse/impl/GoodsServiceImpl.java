@@ -45,6 +45,7 @@ public class GoodsServiceImpl implements GoodsService {
 		info.setPrice(addRequest.getPrice());
 		info.setType(addRequest.getType());
 		info.setCreateTime(new Date());
+		info.setParentId(addRequest.getParentId());
 		goodsDao.save(info);
 	}
 

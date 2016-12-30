@@ -32,4 +32,6 @@ public interface ProcedureService {
 	 * @param procedureId
 	 */
 	public List<ProcedureDepartment> getProcedureDepartmentByProcedureId(int procedureId);
+	
+	public void deleteProcedureDepartmentByProcedureId(int procedureId);
 }

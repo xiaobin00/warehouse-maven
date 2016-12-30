@@ -31,6 +31,8 @@ public class GoodsRecordInfo implements java.io.Serializable{
 	private String describe;
 	private Date createTime;
 	
+	private Integer parentId;
+	
 	public GoodsRecordInfo() {
 		super();
 	}
@@ -129,6 +131,13 @@ public class GoodsRecordInfo implements java.io.Serializable{
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+	@Column(name = "parent_id")
+	public Integer getParentId() {
+		return parentId;
+	}
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
 	}
 	
 	

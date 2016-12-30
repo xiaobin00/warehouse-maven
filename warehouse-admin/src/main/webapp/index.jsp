@@ -107,6 +107,23 @@
                             </li>
                         </ul>
                     </li>
+                    
+                     <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">生成管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="production/manager">成产计划列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="goods/base/toAdd">成产计划添加</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
                 </ul>
             </div>
         </nav>

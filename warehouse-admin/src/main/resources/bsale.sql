@@ -18,6 +18,65 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `t_access`
 -- ----------------------------
+
+CREATE TABLE `production_plan_info` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`user_id`  int(11) NULL ,
+`company_id`  int(11) NULL ,
+`name`  varchar(50) NULL ,
+`count`  int(11) NULL ,
+`percentage`  int(11) NULL ,
+`status`  int(11) NULL ,
+`start_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+`end_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+`actual_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+CREATE TABLE `production_goods_record_info` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`plan_id`  int(11) NULL ,
+`goods_id`  int(11) NULL ,
+`name`  varchar(50) NULL ,
+`count`  int(11) NULL ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+`status`  int(11) NULL ,
+`update_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+CREATE TABLE `plan_schedule_info` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`plan_id`  int(11) NULL ,
+`p_department_id`  int(11) NULL ,
+`user_id`  int(11) NULL ,
+`count`  int(11) NULL ,
+`percentage`  int(11) NULL ,
+`status`  int(11) NULL ,
+`update_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+CREATE TABLE `notice_info` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`user_id`  int(11) NULL ,
+`content`  varchar(250) NULL ,
+`type`  int(11) NULL ,
+`status`  int(11) NULL ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+
+
+
+
+
+
+
+
 DROP TABLE IF EXISTS `t_access`;
 
 CREATE TABLE `base_goods_info` (
@@ -41,6 +100,7 @@ CREATE TABLE `goods_record_info` (
 `tatol_price`  int(11) NULL ,
 `describe`  varchar(255) NULL ,
 `create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+`parent_id`  int(11) NULL
 PRIMARY KEY (`id`)
 )
 ;
