@@ -116,10 +116,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="production/manager">生产计划列表</a>
+                                <a class="J_menuItem" href="procedure/manager">生产计划列表</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="goods/base/toAdd">生产计划添加</a>
+                                <a class="J_menuItem" href="procedure/toAdd">生产计划添加</a>
                             </li>
                         </ul>
                     </li>
