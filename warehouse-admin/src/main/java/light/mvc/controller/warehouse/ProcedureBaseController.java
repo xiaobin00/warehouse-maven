@@ -20,8 +20,8 @@ import light.mvc.model.basic.ProcedureDepartment;
 import light.mvc.service.warehouse.ProcedureService;
 
 @Controller
-@RequestMapping("/procedure")
-public class ProcedureController extends BaseController{
+@RequestMapping("/procedureBase")
+public class ProcedureBaseController extends BaseController{
 	@Resource
 	private ProcedureService procedureService;
 	
@@ -29,12 +29,12 @@ public class ProcedureController extends BaseController{
 	public String getList(HttpServletRequest request,HttpServletResponse response,Model model){
 		//request.setAttribute("listData", procedureDepartmentService.getList());
 		model.addAttribute("listData", procedureService.getList());
-		return "procedure/manager";
+		return "procedureBase/manager";
 	}
 	
 	@RequestMapping("/toAdd")
 	public String toAdd(){
-		return "procedure/add";
+		return "procedureBase/add";
 	}
 	
 	@RequestMapping("/add")
@@ -46,7 +46,7 @@ public class ProcedureController extends BaseController{
 		procedure.setCreateTime(new Date());
 		procedure.setStatus(1);
 		procedureService.save(procedure);
-		return"redirect:/procedure/manager";
+		return"redirect:/procedureBase/manager";
 		
 	}
 	
@@ -55,7 +55,7 @@ public class ProcedureController extends BaseController{
 		String id= request.getParameter("id");
 		Procedure procedure = procedureService.getProcedureById(Integer.parseInt(id));
 		request.setAttribute("procedure", procedure);
-		return "procedure/update";
+		return "procedureBase/update";
 	}
 	
 	@RequestMapping("/update")
@@ -65,15 +65,14 @@ public class ProcedureController extends BaseController{
 		Procedure procedure = procedureService.getProcedureById(Integer.parseInt(id));
 		procedure.setName(name);
 		procedureService.updateProcedure(procedure);
-		return"redirect:/procedure/manager";
+		return"redirect:/procedureBase/manager";
 	}
 	
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request) {
-
 		String id = request.getParameter("id");
 		procedureService.deleteProcedure(Integer.parseInt(id));
-		return "redirect:/procedure/manager";
+		return "redirect:/procedureBase/manager";
 	}
 	
 	@RequestMapping("/toDetail")
@@ -84,7 +83,7 @@ public class ProcedureController extends BaseController{
 		request.setAttribute("procedureDepartments", procedureDepartments);
 		request.setAttribute("sorts", sorts);
 		request.setAttribute("id", id);
-		return "/procedure/detail";
+		return "/procedureBase/detail";
 	}
 	
 	@RequestMapping("/updateDetail")
@@ -93,6 +92,6 @@ public class ProcedureController extends BaseController{
 		int procedureId = Integer.parseInt(request.getParameter("procedureId"));
 		procedureService.deleteProcedureDepartmentByProcedureId(procedureId);
 		procedureService.saveProcedureDetail(map, procedureId);
-		return "redirect:/procedure/toDetail?id="+procedureId;
+		return "redirect:/procedureBase/toDetail?id="+procedureId;
 	}
 }
