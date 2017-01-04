@@ -2,10 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
-<%@page import="light.mvc.model._enum.GoodsDealType"%>
-<%
-request.setAttribute("typeList", GoodsDealType.values());
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,112 +30,126 @@ function myfun()
 }
 </script>
 <body class="gray-bg">
-<c:if test="${tip != null}">
-<div class="alert alert-danger">
-     ${tip}
-</div>
-</c:if>
+	<c:if test="${tip != null}">
+		<div class="alert alert-danger">${tip}</div>
+	</c:if>
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">
 			<div class="col-sm-12">
-			<div class="ibox float-e-margins">
-			 <div class="ibox-title">
-                        <h5>生产计划添加 <small></small></h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="form_basic.html#">选项1</a>
-                                </li>
-                                <li><a href="form_basic.html#">选项2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-			
 				<div class="ibox float-e-margins">
-					<form method="get" action="/procedure/add" class="form-horizontal">
-						<div class="form-group" style="margin-left: 15px;margin-right: 15pc">
-							<div style="margin-top: 5px"></div>
-							<label class="col-sm-2 control-label">名称:</label>
+					<div class="ibox-title">
+						<h5>
+							生产计划添加 <small></small>
+						</h5>
+						<div class="ibox-tools">
+							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+							</a> <a class="dropdown-toggle" data-toggle="dropdown"
+								href="form_basic.html#"> <i class="fa fa-wrench"></i>
+							</a>
+							<ul class="dropdown-menu dropdown-user">
+								<li><a href="form_basic.html#">选项1</a></li>
+								<li><a href="form_basic.html#">选项2</a></li>
+							</ul>
+							<a class="close-link"> <i class="fa fa-times"></i>
+							</a>
+						</div>
+					</div>
 
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name="name">
-							</div>
-							</div>
-							
-							<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
-							<div style="margin-top: 5px"></div>
-							<label class="col-sm-2 control-label">选择流程：</label>
+					<div class="ibox float-e-margins">
+						<form method="get" action="/procedure/add" class="form-horizontal">
+							<div class="form-group"
+								style="margin-left: 15px; margin-right: 15pc">
+								<div style="margin-top: 5px"></div>
+								<label class="col-sm-2 control-label">名称:</label>
 
-							<div class="col-sm-10">
-								<select class="form-control m-b" name="type">
-                                       <c:forEach items="${typeList }" var="type">
-                                        <option value="${type.id }">${type.name }</option>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" style="width: 20%"
+										name="name">
+								</div>
+							</div>
+
+							<div class="form-group"
+								style="margin-left: 15px; margin-right: 15pc">
+								<div style="margin-top: 5px"></div>
+								<label class="col-sm-2 control-label">选择流程：</label>
+
+								<div class="col-sm-10">
+									<select class="form-control m-b" name="type" style="width: 20%">
+										<c:forEach items="${procedures }" var="item">
+											<option value="${item.id }">${item.name }</option>
 										</c:forEach>
-                                    </select>
+									</select>
+								</div>
 							</div>
-						</div>
-						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
-							<div style="margin-top: 5px"></div>
-							<label class="col-sm-2 control-label">数量：</label>
+							<div class="form-group"
+								style="margin-left: 15px; margin-right: 15pc">
+								<div style="margin-top: 5px"></div>
+								<label class="col-sm-2 control-label">数量：</label>
 
-							<div class="col-sm-10">
-								<input type="number" name="count" id="count" onchange="translation()"> 
+								<div class="col-sm-10">
+									<input type="number" name="count" class="form-control"
+										style="width: 20%">
+								</div>
 							</div>
-						</div>
-						
-						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
-							<div style="margin-top: 5px"></div>
-							<label class="col-sm-2 control-label">价格(单位：分)：</label>
 
-							<div class="col-sm-10">
-								<input type="number" name="price" id="price" onchange="translation()"> <nobr id="priceYuan">0元</nobr>
-							</div>
-						</div>
-						
-						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
-							<div style="margin-top: 5px"></div>
-							<label class="col-sm-2 control-label">总价格(单位：分)：</label>
+							<div class="form-group"
+								style="margin-left: 15px; margin-right: 15pc">
+								<div style="margin-top: 5px"></div>
+								<label class="col-sm-2 control-label">进度：</label>
 
-							<div class="col-sm-10">
-								<input type="number" name="tatolPrice" id="tatolPrice" readonly="true"> <nobr id="tatolPriceYuan">0元</nobr>
+								<div class="col-sm-10">
+									<input type="number" name="percentage" class="form-control"
+										style="width: 20%">
+									<nobr>%</nobr>
+								</div>
 							</div>
-						</div>
-						
-						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
-							<div style="margin-top: 5px"></div>
-							<label class="col-sm-2 control-label">规格：</label>
 
-							<div class="col-sm-10">
-								<textarea rows="2" cols="21" name="specifications"></textarea>
-							</div>
-						</div>
-						
-						<div class="form-group"  style="margin-left: 15px;margin-right: 15pc">
-							<div style="margin-top: 5px"></div>
-							<label class="col-sm-2 control-label">详情：</label>
+							<div class="form-group"
+								style="margin-left: 15px; margin-right: 15pc">
+								<div style="margin-top: 5px"></div>
+								<label class="col-sm-2 control-label">开始时间：</label>
 
-							<div class="col-sm-10">
-								<textarea rows="5" cols="21" name="describe"></textarea>
+								<div class="col-sm-10">
+									<input placeholder="开始日期" class="form-control layer-date"
+										id="start" style="width: 20%">
+								</div>
 							</div>
-						</div>
-						
-						  <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-primary" type="submit">保存内容</button>
-                                    <button class="btn btn-white" type="submit">取消</button>
-                                </div>
-                            </div>
-					</form>
-				</div>
+
+							<div class="form-group"
+								style="margin-left: 15px; margin-right: 15pc">
+								<div style="margin-top: 5px"></div>
+								<label class="col-sm-2 control-label">结束时间：</label>
+
+								<div class="col-sm-10">
+									<input placeholder="结束日期" class="form-control layer-date"
+										id="end" style="width: 20%">
+								</div>
+							</div>
+							<div class="form-group"
+								style="margin-left: 15px; margin-right: 15pc">
+								<label class="col-sm-2 control-label">添加所需材料</label>
+								<div class="col-sm-10">
+									<div class="well">
+										<label class="col-sm-1 control-label">材料:</label> <select
+											class="form-control m-b" name="type" style="width: 20%">
+											<c:forEach items="${goodsInfos }" var="item">
+												<option value="${item.id }">${item.name }</option>
+											</c:forEach>
+										</select> <label class="col-sm-1 control-label">数量:</label> <input
+											type="number" name="count" class="form-control"
+											style="width: 20%">
+
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button class="btn btn-primary" type="submit">保存内容</button>
+									<button class="btn btn-white" type="submit">取消</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -154,22 +164,39 @@ function myfun()
 
 <!-- iCheck -->
 <script src="/js/plugins/iCheck/icheck.min.js"></script>
+<!-- layerDate plugin javascript -->
+<script src="/js/plugins/layer/laydate/laydate.js"></script>
 <script type="text/javascript">
-function translation() {
-	var price = $("#price").val();
-	var count = $("#count").val();
-	if(count != "" && price != ""){
-		$("#tatolPrice").val(price*count);
-		$("#tatolPriceYuan").html(price/100*count+"元");
-	}else{
-		$("#tatolPrice").val(0);
-		$("#tatolPriceYuan").html("0元");
-	}
-	if(price != ""){
-		 $("#priceYuan").html(price/100+"元");
-	}
+//日期范围限制
+var start = {
+    elem: '#start',
+    format: 'YYYY/MM/DD hh:mm:ss',
+    min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16 23:59:59', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function (datas) {
+        end.min = datas; //开始日选好后，重置结束日的最小日期
+        end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+var end = {
+    elem: '#end',
+    format: 'YYYY/MM/DD hh:mm:ss',
+    min: laydate.now(),
+    max: '2099-06-16 23:59:59',
+    istime: true,
+    istoday: false,
+    choose: function (datas) {
+        start.max = datas; //结束日选好后，重置开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
+
+
+function addGoods(){
+	
 }
-
 </script>
-
 </html>

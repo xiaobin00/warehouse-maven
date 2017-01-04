@@ -17,13 +17,13 @@ import com.alibaba.fastjson.JSONObject;
 import light.mvc.framework.web.BaseController;
 import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureDepartment;
-import light.mvc.service.warehouse.ProcedureService;
+import light.mvc.service.warehouse.ProcedureBaseService;
 
 @Controller
 @RequestMapping("/procedureBase")
 public class ProcedureBaseController extends BaseController{
 	@Resource
-	private ProcedureService procedureService;
+	private ProcedureBaseService procedureService;
 	
 	@RequestMapping("/manager")
 	public String getList(HttpServletRequest request,HttpServletResponse response,Model model){

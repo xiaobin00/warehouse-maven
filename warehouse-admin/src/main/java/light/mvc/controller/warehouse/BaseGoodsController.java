@@ -19,7 +19,7 @@ import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureDepartment;
 import light.mvc.service.warehouse.GoodsBaseService;
-import light.mvc.service.warehouse.ProcedureService;
+import light.mvc.service.warehouse.ProcedureBaseService;
 
 @Controller
 @RequestMapping("/goods/base")

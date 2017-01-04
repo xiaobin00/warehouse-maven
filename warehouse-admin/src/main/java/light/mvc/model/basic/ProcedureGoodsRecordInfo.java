@@ -10,8 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name = "production_goods_record_info", catalog = "bsale")
-public class ProductionGoodsRecordInfo implements java.io.Serializable {
+@Table(name = "procedure_goods_record_info", catalog = "bsale")
+public class ProcedureGoodsRecordInfo implements java.io.Serializable {
 	
 	/**
 	 * 
@@ -28,7 +28,7 @@ public class ProductionGoodsRecordInfo implements java.io.Serializable {
 	
 	
 
-	public ProductionGoodsRecordInfo(Integer id, Integer userId, Integer goodsId, String name, Integer count,
+	public ProcedureGoodsRecordInfo(Integer id, Integer userId, Integer goodsId, String name, Integer count,
 			Integer status, Date createTime, Date updateTime) {
 		super();
 		this.id = id;
@@ -41,7 +41,7 @@ public class ProductionGoodsRecordInfo implements java.io.Serializable {
 		this.updateTime = updateTime;
 	}
 	
-	public ProductionGoodsRecordInfo() {
+	public ProcedureGoodsRecordInfo() {
 		super();
 	}
 

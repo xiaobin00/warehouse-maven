@@ -19,7 +19,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for `t_access`
 -- ----------------------------
 
-CREATE TABLE `production_plan_info` (
+CREATE TABLE `procedure_plan_info` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,
 `user_id`  int(11) NULL ,
 `company_id`  int(11) NULL ,
@@ -34,7 +34,7 @@ CREATE TABLE `production_plan_info` (
 PRIMARY KEY (`id`)
 )
 ;
-CREATE TABLE `production_goods_record_info` (
+CREATE TABLE `procedure_goods_record_info` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,
 `plan_id`  int(11) NULL ,
 `goods_id`  int(11) NULL ,

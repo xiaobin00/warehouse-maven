@@ -1,37 +1,27 @@
 package light.mvc.service.warehouse;
 
 import java.util.List;
-import java.util.Map;
 
+import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
-import light.mvc.model.basic.ProcedureDepartment;
 
 public interface ProcedureService {
 	
-	public List<Procedure> getList();
-
-	public void save(Procedure department);
-
-	public Procedure getProcedureById(int id);
-
-	public void updateProcedure(Procedure department);
-
-	public void deleteProcedure(int id);
-	
-	public List<ProcedureDepartment> getProcedureDepartmentList(int companyId);
+	/**     
+	* 获取流程列表
+	* @author：zhenghaibin 
+	* @date：2017年1月4日 下午1:44:25 
+	* @param companyId
+	* @return
+	*/
+	public List<Procedure> getProcedures(int companyId);
 	
 	/**     
-	* 保存详细流程
+	* 获取物品列表
 	* @author：zhenghaibin 
-	* @date：2016年11月29日 下午4:20:07 
-	* @param map
+	* @date：2017年1月4日 下午4:38:13 
+	* @param companyId
+	* @return
 	*/
-	public void saveProcedureDetail(Map<String,String[]> map,int procedureId);
-	
-	/**获取流程工序列表
-	 * @param procedureId
-	 */
-	public List<ProcedureDepartment> getProcedureDepartmentByProcedureId(int procedureId);
-	
-	public void deleteProcedureDepartmentByProcedureId(int procedureId);
+	public List<BaseGoodsInfo> getGoodsInfo(int companyId);
 }
