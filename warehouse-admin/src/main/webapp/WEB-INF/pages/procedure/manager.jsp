@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
-<%@page import="light.mvc.model._enum.GoodsDealType"%>
+<%@page import="light.mvc.model._enum.ProcedurePlanStatus"%>
 <%
-request.setAttribute("typeList", GoodsDealType.values());
+request.setAttribute("statusList", ProcedurePlanStatus.values());
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,17 +28,26 @@ request.setAttribute("typeList", GoodsDealType.values());
 </c:if>
 	<div class="ibox-content">
 		 <div class="ibox-content">
-		                        <form role="form" class="form-inline" action="/goods/manager">
+		                        <form role="form" class="form-inline" action="/procedure/manager">
 		                            <div class="form-group">
-		                                <label for="exampleInputEmail2" class="sr-only">物品名</label>
-		                                <input type="text" name="name" placeholder="请输入货品名" id="exampleInputEmail2" class="form-control">
+		                              	<label>名字:</label>
+		                                <input type="text" name="name" placeholder="请输入名字" id="exampleInputEmail2" class="form-control">
 		                            </div>
 		                            <div class="form-group">
-		                                <label for="exampleInputPassword2" class="sr-only">出入库类型</label>
+		                                <label>流程:</label>
 		                                <select class="form-control" name="type">
 		                                 <option value="0">全部</option>
-                                       <c:forEach items="${typeList }" var="type">
-                                        <option value="${type.id }">${type.name }</option>
+                                       <c:forEach items="${procedures }" var="item">
+                                        <option value="${item.id }">${item.name }</option>
+										</c:forEach>
+                                    </select>
+		                            </div>
+		                            <div class="form-group">
+		                                <label>状态:</label>
+		                                <select class="form-control" name="status">
+		                                 <option value="0">全部</option>
+                                       <c:forEach items="${statusList }" var="item">
+                                        <option value="${item.id }">${item.name }</option>
 										</c:forEach>
                                     </select>
 		                            </div>
@@ -51,32 +60,34 @@ request.setAttribute("typeList", GoodsDealType.values());
 				<tr>
 					<th>id</th>
 					<th>名字</th>
-					<th>类型</th>
+					<th>流程</th>
 					<th>数量</th>
-					<th>单价</th>
-					<th>总价格</th>
-					<th>规格</th>
-					<th>描述</th>
+					<th>进度</th>
+					<th>开始时间</th>
+					<th>结束时间</th>
+					<th>状态</th>
+					<th>创建人</th>
 					<th>创建时间</th>
-					<!-- <th>操作</th> -->
+					<th>操作</th> 
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listData }" var="item">
+				<c:forEach items="${procedurePlanInfos }" var="item">
 					<tr>
 						<td>${item.id }</td>
 						<td>${item.name }</td>
-						<td><c:forEach items="${typeList }" var="type">
-                                 <c:if test="${type.id == item.type }"> ${type.name }</c:if>   
+						<td><c:forEach items="${procedures }" var="p">
+                                 <c:if test="${p.id == item.procedureId }"> ${p.name }</c:if>   
 						</c:forEach></td>
 						<td>${item.count }</td>
-						<td>${item.price }</td>
-						<td>${item.tatolPrice }</td>
-						<td>${item.specifications }</td>
-						<td>${item.describe }</td>
+						<td>${item.percentage }%</td>
+						<td>${item.startTime }</td>
+						<td>${item.endTime }</td>
+						<td>${item.status }</td>
+						<td>${item.userId }</td>
 						<td>${item.createTime }</td>
-<%-- 						<td><a href="/goods/base/toUpdate?id=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/goods/delete?id=${item.id }" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a></td>
- --%>					</tr>
+ 						<td><a href="/goods/base/toUpdate?id=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/goods/delete?id=${item.id }" onclick="if(confirm('确认删除吗？')==false)return false;">删除</a></td>
+ 					</tr>
 
 				</c:forEach>
 			</tbody>

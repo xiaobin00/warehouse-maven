@@ -27,6 +27,7 @@ public class ProcedurePlanInfo implements java.io.Serializable {
 	private Date endTime;
 	private Date actualTime;
 	private Date createTime;
+	private Integer procedureId;
 	
 	
 	public ProcedurePlanInfo(Integer id, Integer userId, Integer companyId, String name, Integer count,
@@ -128,6 +129,13 @@ public class ProcedurePlanInfo implements java.io.Serializable {
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+	@Column(name = "procedure_id")
+	public Integer getProcedureId() {
+		return procedureId;
+	}
+	public void setProcedureId(Integer procedureId) {
+		this.procedureId = procedureId;
 	}
 	
 }

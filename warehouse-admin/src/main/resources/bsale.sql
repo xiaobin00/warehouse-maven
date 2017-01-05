@@ -23,6 +23,7 @@ CREATE TABLE `procedure_plan_info` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,
 `user_id`  int(11) NULL ,
 `company_id`  int(11) NULL ,
+`procedure_id`  int(11) NULL ,
 `name`  varchar(50) NULL ,
 `count`  int(11) NULL ,
 `percentage`  int(11) NULL ,

@@ -74,7 +74,8 @@ function myfun()
 								<label class="col-sm-2 control-label">选择流程：</label>
 
 								<div class="col-sm-10">
-									<select class="form-control m-b" name="type" style="width: 20%">
+									<select class="form-control m-b" name="procedureId" style="width: 20%">
+										<option value="0">==请选择==</option>
 										<c:forEach items="${procedures }" var="item">
 											<option value="${item.id }">${item.name }</option>
 										</c:forEach>
@@ -98,9 +99,20 @@ function myfun()
 								<label class="col-sm-2 control-label">进度：</label>
 
 								<div class="col-sm-10">
-									<input type="number" name="percentage" class="form-control"
-										style="width: 20%">
-									<nobr>%</nobr>
+								<select class="form-control m-b" name="percentage" style="width: 20%">
+										<option value="0">0%</option>
+										<option value="10">10%</option>
+										<option value="20">20%</option>
+										<option value="30">30%</option>
+										<option value="40">40%</option>
+										<option value="50">50%</option>
+										<option value="60">60%</option>
+										<option value="70">70%</option>
+										<option value="80">80%</option>
+										<option value="90">90%</option>
+										<option value="100">100%</option>
+									</select>
+									
 								</div>
 							</div>
 
@@ -111,7 +123,7 @@ function myfun()
 
 								<div class="col-sm-10">
 									<input placeholder="开始日期" class="form-control layer-date"
-										id="start" style="width: 20%">
+										id="start" style="width: 20%" name="startTime">
 								</div>
 							</div>
 
@@ -122,26 +134,10 @@ function myfun()
 
 								<div class="col-sm-10">
 									<input placeholder="结束日期" class="form-control layer-date"
-										id="end" style="width: 20%">
+										id="end" style="width: 20%" name="endTime">
 								</div>
 							</div>
-							<div class="form-group"
-								style="margin-left: 15px; margin-right: 15pc">
-								<label class="col-sm-2 control-label">添加所需材料</label>
-								<div class="col-sm-10">
-									<div class="well">
-										<label class="col-sm-1 control-label">材料:</label> <select
-											class="form-control m-b" name="type" style="width: 20%">
-											<c:forEach items="${goodsInfos }" var="item">
-												<option value="${item.id }">${item.name }</option>
-											</c:forEach>
-										</select> <label class="col-sm-1 control-label">数量:</label> <input
-											type="number" name="count" class="form-control"
-											style="width: 20%">
-
-									</div>
-								</div>
-							</div>
+							
 							<div class="form-group">
 								<div class="col-sm-4 col-sm-offset-2">
 									<button class="btn btn-primary" type="submit">保存内容</button>
