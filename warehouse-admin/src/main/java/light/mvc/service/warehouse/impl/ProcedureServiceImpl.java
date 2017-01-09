@@ -9,12 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import light.mvc.dao.BaseDaoI;
+import light.mvc.exception.ServiceOperationException;
 import light.mvc.model._enum.ProcedurePlanStatus;
 import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedurePlanInfo;
 import light.mvc.request.ProcedurePlanAddRequest;
+import light.mvc.request.ProcedurePlanGetListRequest;
 import light.mvc.request.ProcedurePlanGetRequest;
+import light.mvc.request.ProcedurePlanUpdateRequest;
 import light.mvc.request.Request;
 import light.mvc.service.warehouse.ProcedureService;
 import light.mvc.utils.StringUtil;
@@ -56,7 +59,7 @@ public class ProcedureServiceImpl implements ProcedureService {
 
 	@Override
 	public List<ProcedurePlanInfo> getProcedurePlanInfos(Request request, int companyId) {
-		ProcedurePlanGetRequest getRequest = (ProcedurePlanGetRequest) request;
+		ProcedurePlanGetListRequest getRequest = (ProcedurePlanGetListRequest) request;
 		String hql = "from ProcedurePlanInfo where companyId = :companyId";
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("companyId", companyId);
@@ -68,11 +71,58 @@ public class ProcedureServiceImpl implements ProcedureService {
 			hql = hql + " and procedureId = :procedureId ";
 			params.put("procedureId", getRequest.getProcedureId());
 		}
-		if (getRequest.getStatus() != 0) {
+		if (getRequest.getStatus() != -1) {
 			hql = hql + " and status = :status ";
 			params.put("status", getRequest.getStatus());
 		}
 		hql = hql + " order by createTime desc";
 		return procedurePlanInfoDao.find(hql, params);
+	}
+
+	@Override
+	public ProcedurePlanInfo getProcedurePlanInfo(Request request) {
+		ProcedurePlanGetRequest getRequest = (ProcedurePlanGetRequest) request;
+		String hql = "from ProcedurePlanInfo where id = :id";
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", getRequest.getPlanId());
+		return procedurePlanInfoDao.get(hql, params);
+	}
+
+	@Override
+	public void updateProcedurePlanInfo(Request request) throws Exception {
+		ProcedurePlanUpdateRequest planUpdateRequest = (ProcedurePlanUpdateRequest) request;
+		ProcedurePlanInfo info = procedurePlanInfoDao.get(ProcedurePlanInfo.class, planUpdateRequest.getId());
+		if (info.getStatus() == ProcedurePlanStatus.PREPARE.getId()) {
+			if (!StringUtil.isEmpty(planUpdateRequest.getName())) {
+				info.setName(planUpdateRequest.getName());
+			}
+			if (planUpdateRequest.getProcedureId() != 0) {
+				info.setProcedureId(planUpdateRequest.getProcedureId());
+			}
+			if (planUpdateRequest.getCount() != 0) {
+				info.setCount(planUpdateRequest.getCount());
+			}
+			if (planUpdateRequest.getStartTime() != null) {
+				info.setStartTime(planUpdateRequest.getStartTime());
+			}
+			if (planUpdateRequest.getEndTime() != null) {
+				info.setEndTime(planUpdateRequest.getEndTime());
+			}
+		}
+		if (planUpdateRequest.getPercentage() != 0) {
+			info.setPercentage(planUpdateRequest.getPercentage());
+		}
+		if (planUpdateRequest.getActualTime() != null) {
+			info.setActualTime(planUpdateRequest.getActualTime());
+		}
+
+		if (planUpdateRequest.getStatus() != 0) {
+			if (planUpdateRequest.getStatus() == ProcedurePlanStatus.PREPARE.getId()
+					&& info.getStatus() != ProcedurePlanStatus.PREPARE.getId()) {
+				throw new ServiceOperationException("数据异常");
+			}
+			info.setStatus(planUpdateRequest.getStatus());
+		}
+		procedurePlanInfoDao.update(info);
 	}
 }

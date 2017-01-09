@@ -44,4 +44,21 @@ public interface ProcedureService {
 	* @param companyId
 	*/
 	public List<ProcedurePlanInfo> getProcedurePlanInfos(Request request,int companyId);
+	
+	/**     
+	* 获取单个计划
+	* @author：zhenghaibin 
+	* @date：2017年1月9日 下午1:53:42 
+	* @param request
+	* @return
+	*/
+	public ProcedurePlanInfo getProcedurePlanInfo(Request request);
+	
+	/**     
+	* 修改生产计划信息
+	* @author：zhenghaibin 
+	* @date：2017年1月9日 下午3:56:29 
+	* @param request
+	*/
+	public void updateProcedurePlanInfo(Request request) throws Exception;
 }

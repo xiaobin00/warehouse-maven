@@ -12,7 +12,8 @@ public enum ProcedurePlanStatus {
 	
 	PREPARE(0, "待进行"),
 	CONDUCT(1, "进行"),
-	OVER(2, "结束"),
+	COMPLETE(2, "完成"),
+	OVER(3, "结束"),
 	;
 	int id;
     String name;
