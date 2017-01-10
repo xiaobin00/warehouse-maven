@@ -4,6 +4,7 @@ import java.util.List;
 
 import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
+import light.mvc.model.basic.ProcedureGoodsRecordInfo;
 import light.mvc.model.basic.ProcedurePlanInfo;
 import light.mvc.request.Request;
 
@@ -61,4 +62,22 @@ public interface ProcedureService {
 	* @param request
 	*/
 	public void updateProcedurePlanInfo(Request request) throws Exception;
+	
+	/**     
+	* 获取生产计划原料配置
+	* @author：zhenghaibin 
+	* @date：2017年1月10日 下午1:53:40 
+	* @param request
+	* @throws Exception
+	*/
+	public List<ProcedureGoodsRecordInfo> getProcedureGoods(Request request) throws Exception;
+	
+	/**     
+	* 添加出库货品
+	* @author：zhenghaibin 
+	* @date：2017年1月10日 下午4:52:25 
+	* @param request
+	* @throws Exception
+	*/
+	public void addGoods(Request request,int userId) throws Exception;
 }

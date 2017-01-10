@@ -39,6 +39,7 @@ CREATE TABLE `procedure_goods_record_info` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,
 `plan_id`  int(11) NULL ,
 `goods_id`  int(11) NULL ,
+`user_id`  int(11) NULL ,
 `name`  varchar(50) NULL ,
 `count`  int(11) NULL ,
 `create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,

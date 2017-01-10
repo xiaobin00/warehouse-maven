@@ -13,7 +13,9 @@ import light.mvc.exception.ServiceOperationException;
 import light.mvc.model._enum.ProcedurePlanStatus;
 import light.mvc.model.basic.BaseGoodsInfo;
 import light.mvc.model.basic.Procedure;
+import light.mvc.model.basic.ProcedureGoodsRecordInfo;
 import light.mvc.model.basic.ProcedurePlanInfo;
+import light.mvc.request.ProcedureGoodsAddRequest;
 import light.mvc.request.ProcedurePlanAddRequest;
 import light.mvc.request.ProcedurePlanGetListRequest;
 import light.mvc.request.ProcedurePlanGetRequest;
@@ -28,7 +30,9 @@ public class ProcedureServiceImpl implements ProcedureService {
 	@Autowired
 	private BaseDaoI<ProcedurePlanInfo> procedurePlanInfoDao;
 	@Autowired
-	private BaseDaoI<BaseGoodsInfo> baseGoodsInfo;
+	private BaseDaoI<BaseGoodsInfo> baseGoodsInfoDao;
+	@Autowired
+	private BaseDaoI<ProcedureGoodsRecordInfo> procedureGoodsRecordInfoDao;
 
 	@Override
 	public List<Procedure> getProcedures(int companyId) {
@@ -37,7 +41,7 @@ public class ProcedureServiceImpl implements ProcedureService {
 
 	@Override
 	public List<BaseGoodsInfo> getGoodsInfo(int companyId) {
-		return baseGoodsInfo.find("from BaseGoodsInfo where companyId = "+companyId);
+		return baseGoodsInfoDao.find("from BaseGoodsInfo where companyId = "+companyId);
 	}
 
 	@Override
@@ -124,5 +128,29 @@ public class ProcedureServiceImpl implements ProcedureService {
 			info.setStatus(planUpdateRequest.getStatus());
 		}
 		procedurePlanInfoDao.update(info);
+	}
+
+	@Override
+	public List<ProcedureGoodsRecordInfo> getProcedureGoods(Request request) throws Exception {
+		ProcedurePlanGetRequest getRequest = (ProcedurePlanGetRequest) request;
+		String hql = "from ProcedureGoodsRecordInfo where planId = :planId";
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("planId", getRequest.getPlanId());
+		return procedureGoodsRecordInfoDao.find(hql, params);
+	}
+
+	@Override
+	public void addGoods(Request request,int userId) throws Exception {
+		ProcedureGoodsAddRequest getRequest = (ProcedureGoodsAddRequest) request;
+		ProcedureGoodsRecordInfo goodsRecordInfo = new ProcedureGoodsRecordInfo();
+		goodsRecordInfo.setCount(getRequest.getCount());
+		goodsRecordInfo.setGoodsId(getRequest.getId());
+		goodsRecordInfo.setName(getRequest.getName());
+		goodsRecordInfo.setUserId(userId);
+		goodsRecordInfo.setCreateTime(new Date());
+		goodsRecordInfo.setPlanId(getRequest.getPlanId());
+		goodsRecordInfo.setStatus(1);
+		goodsRecordInfo.setUpdateTime(new Date());
+		procedureGoodsRecordInfoDao.save(goodsRecordInfo);
 	}
 }

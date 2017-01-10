@@ -18,8 +18,9 @@ public class ProcedureGoodsRecordInfo implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = -151821015287918300L;
 	private Integer id;
-	private Integer userId;
+	private Integer planId;
 	private Integer goodsId;
+	private Integer userId;
 	private String name;
 	private Integer count;
 	private Integer status;
@@ -28,19 +29,22 @@ public class ProcedureGoodsRecordInfo implements java.io.Serializable {
 	
 	
 
-	public ProcedureGoodsRecordInfo(Integer id, Integer userId, Integer goodsId, String name, Integer count,
-			Integer status, Date createTime, Date updateTime) {
+	
+	
+	public ProcedureGoodsRecordInfo(Integer id, Integer planId, Integer goodsId, Integer userId, String name,
+			Integer count, Integer status, Date createTime, Date updateTime) {
 		super();
 		this.id = id;
-		this.userId = userId;
+		this.planId = planId;
 		this.goodsId = goodsId;
+		this.userId = userId;
 		this.name = name;
 		this.count = count;
 		this.status = status;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 	}
-	
+
 	public ProcedureGoodsRecordInfo() {
 		super();
 	}
@@ -53,17 +57,20 @@ public class ProcedureGoodsRecordInfo implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	@Column(name = "user_id")
-	public Integer getUserId() {
-		return userId;
+	@Column(name = "plan_id")
+	public Integer getPlanId() {
+		return planId;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}	
+
+	public void setPlanId(Integer planId) {
+		this.planId = planId;
+	}
 	@Column(name = "name",length=50)
 	public String getName() {
 		return name;
 	}
+	
+
 	@Column(name = "goods_id")
 	public Integer getGoodsId() {
 		return goodsId;
@@ -102,6 +109,14 @@ public class ProcedureGoodsRecordInfo implements java.io.Serializable {
 	}
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+	@Column(name = "user_id")
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	
 	
