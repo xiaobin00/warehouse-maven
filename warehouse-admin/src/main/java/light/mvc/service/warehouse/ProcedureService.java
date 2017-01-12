@@ -80,4 +80,13 @@ public interface ProcedureService {
 	* @throws Exception
 	*/
 	public void addGoods(Request request,int userId) throws Exception;
+	
+	/**     
+	* 删除出库货品
+	* @author：zhenghaibin 
+	* @date：2017年1月12日 下午4:35:30 
+	* @param request
+	* @throws Exception
+	*/
+	public void delGoods(Request request) throws Exception;
 }

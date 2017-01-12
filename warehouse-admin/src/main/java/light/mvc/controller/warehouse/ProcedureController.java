@@ -18,6 +18,7 @@ import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureGoodsRecordInfo;
 import light.mvc.model.basic.ProcedurePlanInfo;
 import light.mvc.request.ProcedureGoodsAddRequest;
+import light.mvc.request.ProcedureGoodsDelRequest;
 import light.mvc.request.ProcedurePlanAddRequest;
 import light.mvc.request.ProcedurePlanGetListRequest;
 import light.mvc.request.ProcedurePlanGetRequest;
@@ -118,6 +119,7 @@ public class ProcedureController extends BaseController{
 			getRequest.parse(request);
 			int companyId = 1;
 			model.addAttribute("planId", getRequest.getPlanId());
+			model.addAttribute("status", getRequest.getStatus());
 			List<ProcedureGoodsRecordInfo> goodsRecordInfos = procedureService.getProcedureGoods(getRequest);
 			List<BaseGoodsInfo> baseGoodsInfos = procedureService.getGoodsInfo(companyId);
 			model.addAttribute("goodsRecordInfos", goodsRecordInfos);
@@ -147,6 +149,19 @@ public class ProcedureController extends BaseController{
 		}
 		return "redirect:/procedure/toGoodsManager?planId="+getRequest.getPlanId();
 	}
-	
+	@RequestMapping("/delGoods")
+	public String delGoods(HttpServletRequest request, Model model){
+		ProcedureGoodsDelRequest delRequest = new ProcedureGoodsDelRequest();
+		try {
+			delRequest.parse(request);
+			procedureService.delGoods(delRequest);
+		} catch (Exception e) {
+			log.error("func[{}] params[{}] exception[{} - {}] desc[fail]",
+					new Object[] { Thread.currentThread().getStackTrace()[1].getMethodName(), request, e.getMessage(),
+							Arrays.deepToString(e.getStackTrace()) });
+			model.addAttribute("tip", "数据有误");
+		}
+		return "redirect:/procedure/toGoodsManager?planId="+delRequest.getPlanId();
+	}
 	
 }

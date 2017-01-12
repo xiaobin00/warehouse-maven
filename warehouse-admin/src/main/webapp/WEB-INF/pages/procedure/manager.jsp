@@ -86,7 +86,7 @@ request.setAttribute("statusList", ProcedurePlanStatus.values());
 						<td>${item.userId }</td>
 						<td>${item.createTime }</td>
 						<td><a href="/procedure/toUpdate?planId=${item.id }">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-							href="/procedure/toGoodsManager?planId=${item.id }">原料配置</a></td>
+							href="/procedure/toGoodsManager?planId=${item.id }&status=${item.status}">原料配置</a></td>
 					</tr>
 
 				</c:forEach>

@@ -16,6 +16,7 @@ import light.mvc.model.basic.Procedure;
 import light.mvc.model.basic.ProcedureGoodsRecordInfo;
 import light.mvc.model.basic.ProcedurePlanInfo;
 import light.mvc.request.ProcedureGoodsAddRequest;
+import light.mvc.request.ProcedureGoodsDelRequest;
 import light.mvc.request.ProcedurePlanAddRequest;
 import light.mvc.request.ProcedurePlanGetListRequest;
 import light.mvc.request.ProcedurePlanGetRequest;
@@ -152,5 +153,12 @@ public class ProcedureServiceImpl implements ProcedureService {
 		goodsRecordInfo.setStatus(1);
 		goodsRecordInfo.setUpdateTime(new Date());
 		procedureGoodsRecordInfoDao.save(goodsRecordInfo);
+	}
+
+	@Override
+	public void delGoods(Request request) throws Exception {
+		ProcedureGoodsDelRequest delRequest = (ProcedureGoodsDelRequest) request;
+		ProcedureGoodsRecordInfo goodsRecordInfo = procedureGoodsRecordInfoDao.get(ProcedureGoodsRecordInfo.class, delRequest.getId());
+		procedureGoodsRecordInfoDao.delete(goodsRecordInfo);
 	}
 }
