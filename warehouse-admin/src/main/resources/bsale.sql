@@ -19,6 +19,22 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for `t_access`
 -- ----------------------------
 
+CREATE TABLE `client_user` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`name`  varchar(50) NULL ,
+`phone`  varchar(50) NULL ,
+`password`  varchar(250) NULL ,
+`status`  int(11) NULL ,
+`account`  varchar(50) NULL ,
+`role_id`  int(11) NULL ,
+`level_id`  int(11) NULL ,
+`create_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
+PRIMARY KEY (`id`)
+)
+;
+
+
+
 CREATE TABLE `procedure_plan_info` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,
 `user_id`  int(11) NULL ,
@@ -27,7 +43,7 @@ CREATE TABLE `procedure_plan_info` (
 `name`  varchar(50) NULL ,
 `count`  int(11) NULL ,
 `percentage`  int(11) NULL ,
-`status`  int(11) NULL ,
+`status`  int(11) NOT NULL DEFAULT 0 ,
 `start_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
 `end_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
 `actual_time`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,

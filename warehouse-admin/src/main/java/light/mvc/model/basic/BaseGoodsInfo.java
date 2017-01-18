@@ -17,6 +17,10 @@ public class BaseGoodsInfo implements java.io.Serializable {
 	
 	// Fields
 
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3599797767959943217L;
 		private Integer id;
 		private String name;
 		private Integer companyId;
