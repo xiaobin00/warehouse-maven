@@ -1,0 +1,2 @@
+mongo 教程:：http://www.jb51.net/article/85605.htm
+启动mongo 服务:D:\me\MongoDB\Server\3.4\bin>mongod.exe --dbpath D:\me\data\db
