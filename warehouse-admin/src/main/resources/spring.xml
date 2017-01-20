@@ -11,7 +11,8 @@
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
-		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+		http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository-1.5.xsd">
 
 	<!-- 引入项目配置文件 -->
 	<!-- <context:property-placeholder location="classpath:config.properties" /> -->
@@ -25,7 +26,7 @@
 
 	<!-- 自动扫描repository和service包(自动注入) -->
 	<context:component-scan base-package="light.mvc.dao,light.mvc.service" />
-   <mongo:mongo-client id="mongo" host="${mongo.url}" port="${mongo.port}">
+   <mongo:mongo-client id="mongo" host="mongo.frogshealth.com" port="27017">
         <mongo:client-options connections-per-host="8"
                        threads-allowed-to-block-for-connection-multiplier="10"
                        connect-timeout="1000"
@@ -33,7 +34,7 @@
                        socket-keep-alive="true"
                        socket-timeout="1500"/>
     </mongo:mongo-client>
-    <mongo:db-factory id="mongoDbFactory" dbname="${mongo.db}" mongo-ref="mongo" />
+    <mongo:db-factory id="mongoDbFactory" dbname="family" mongo-ref="mongo" />
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
     </bean>
