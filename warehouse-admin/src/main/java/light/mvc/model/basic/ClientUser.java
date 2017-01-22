@@ -26,12 +26,14 @@ public class ClientUser implements java.io.Serializable {
 	private Integer roleId;
 	private Integer levelId;
 	private Date createTime;
+	private String salt;
 		
+	
 	public ClientUser() {
 		super();
 	}
 	public ClientUser(Integer id, String name, String phone, String password, Integer status, String account,
-			Integer roleId, Integer levelId, Date createTime) {
+			Integer roleId, Integer levelId, Date createTime, String salt) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -42,6 +44,7 @@ public class ClientUser implements java.io.Serializable {
 		this.roleId = roleId;
 		this.levelId = levelId;
 		this.createTime = createTime;
+		this.salt = salt;
 	}
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -108,5 +111,13 @@ public class ClientUser implements java.io.Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+	@Column(name = "salt", length = 50)
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
 	
 }

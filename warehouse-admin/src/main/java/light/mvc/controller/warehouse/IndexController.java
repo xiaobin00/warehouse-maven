@@ -3,6 +3,7 @@ package light.mvc.controller.warehouse;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,7 @@ public class IndexController extends BaseController {
 	
 	private static final Logger log = LoggerFactory.getLogger(IndexController.class);
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request, Model model){
+	public String login(HttpServletRequest request, Model model,HttpSession session){
 		try {
 			LoginRequest loginRequest = new LoginRequest();
 			loginRequest.parse(request);
@@ -32,5 +33,10 @@ public class IndexController extends BaseController {
 			return "login";
 		}
 		return "redirect:/index";
+	}
+	
+	@RequestMapping("/index")
+	public String index(HttpServletRequest request, Model model,HttpSession session){
+		return "index";
 	}
 }
