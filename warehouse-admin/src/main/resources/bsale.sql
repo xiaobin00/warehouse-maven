@@ -18,6 +18,20 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `t_access`
 -- ----------------------------
+CREATE TABLE `user_login_info` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`account`  varchar(50) NOT NULL ,
+`password`  varchar(100) NOT NULL ,
+`salt`  varchar(20) NOT NULL ,
+`status`  int(11) NOT NULL DEFAULT 0 ,
+`create_time`  timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP ,
+`company_id`  int(11) NULL ,
+PRIMARY KEY (`id`)
+)
+;
+
+
+
 
 CREATE TABLE `client_user` (
 `id`  int(11) NOT NULL AUTO_INCREMENT ,

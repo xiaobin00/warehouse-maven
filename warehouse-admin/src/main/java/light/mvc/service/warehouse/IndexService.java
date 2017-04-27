@@ -1,6 +1,6 @@
 package light.mvc.service.warehouse;
 
-import light.mvc.model.basic.ClientUser;
+import light.mvc.Response.Response;
 import light.mvc.request.Request;
 
 public interface IndexService {
@@ -12,6 +12,6 @@ public interface IndexService {
 	* @param request
 	* @return
 	*/
-	public ClientUser login(Request request);
+	public Response login(Request request);
 	
 }

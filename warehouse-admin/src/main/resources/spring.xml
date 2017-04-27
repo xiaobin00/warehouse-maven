@@ -26,7 +26,7 @@
 
 	<!-- 自动扫描repository和service包(自动注入) -->
 	<context:component-scan base-package="light.mvc.dao,light.mvc.service" />
-   <mongo:mongo-client id="mongo" host="mongo.frogshealth.com" port="27017">
+   <mongo:mongo-client id="mongo" host="localhost" port="27017">
         <mongo:client-options connections-per-host="8"
                        threads-allowed-to-block-for-connection-multiplier="10"
                        connect-timeout="1000"

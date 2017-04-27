@@ -1,7 +1,7 @@
 package light.mvc.model._enum;
 
 public enum ApiUrlParamEnum {
-	name("name"),
+	account("account"),
 	password("password")
 	;
 	

@@ -13,23 +13,26 @@ public class LoginRequest extends Request {
 	 * 
 	 */
 	private static final long serialVersionUID = 267850938426386704L;
-	private String name;
+	private String account;
 	private String password;
 	@Override
 	public void parse(HttpServletRequest request) {
 		HttpRequestInfo info =new HttpRequestInfo(request);
-		this.name = info.getParameter(ApiUrlParamEnum.name.getParamName(), "");
+		this.account = info.getParameter(ApiUrlParamEnum.account.getParamName(), "");
 		this.password = info.getParameter(ApiUrlParamEnum.password.getParamName(), "");
-		if(StringUtil.isEmpty(name) || StringUtil.isEmpty(password)){
+		if(StringUtil.isEmpty(account) || StringUtil.isEmpty(password)){
 			new RequestIllegalException("参数错误");
 		}
 	}
-	public String getName() {
-		return name;
+	
+	public String getAccount() {
+		return account;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setAccount(String account) {
+		this.account = account;
 	}
+
 	public String getPassword() {
 		return password;
 	}

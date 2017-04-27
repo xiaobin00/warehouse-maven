@@ -8,8 +8,21 @@
   <packaging>pom</packaging>
 
   <name>warehouse</name>
-  <url>http://maven.apache.org</url>
+ <!--  <url>http://maven.apache.org</url> -->
 
+    <repositories>  
+            <repository>  
+                <id>nexus</id>  
+                <name>nexus</name>  
+                <url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>  
+                <releases>  
+                    <enabled>true</enabled>  
+                </releases>  
+                <snapshots>  
+                    <enabled>true</enabled>  
+                </snapshots>  
+            </repository>  
+        </repositories>  
 		
 
   <properties>
