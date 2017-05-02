@@ -3,7 +3,7 @@ package light.mvc.service.warehouse.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import light.mvc.Response.LoginResponse;
+import light.mvc.Response.DefaultResponse;
 import light.mvc.Response.Response;
 import light.mvc.dao.BaseDaoI;
 import light.mvc.model._enum.ApiResultEnum;
@@ -19,7 +19,7 @@ public class IndexServiceImpl implements IndexService {
 	
 	@Override
 	public Response login(Request request) {
-		LoginResponse loginResponse = new LoginResponse();
+		DefaultResponse loginResponse = new DefaultResponse();
 		LoginRequest loginRequest = (LoginRequest) request;
 		Map<String,Object> params = new HashMap<String,Object>();
 		params.put("account", loginRequest.getAccount());

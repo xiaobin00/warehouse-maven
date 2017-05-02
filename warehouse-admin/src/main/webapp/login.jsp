@@ -36,7 +36,7 @@
             </div>
             <h3>欢迎使用 hAdmin</h3>
 
-            <form class="m-t" role="form" action="/admin/login">
+            <form class="m-t" role="form" action="">
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="用户名" required="">
                 </div>
@@ -44,7 +44,7 @@
                     <input type="password" class="form-control" placeholder="密码" required="">
                 </div>
               
-                <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
+                <button type="button" class="btn btn-primary block full-width m-b" onclick="login()">登 录</button>
                 <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a> <!-- | <a href="register.html">注册一个新账号</a> -->
                 </p>
 
@@ -55,6 +55,7 @@
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 
     
     

@@ -1,6 +1,6 @@
 package light.mvc.Response;
 
-public class LoginResponse extends Response {
+public class DefaultResponse extends Response {
 
 	/**
 	 * 
